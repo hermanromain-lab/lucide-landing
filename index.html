@@ -665,37 +665,19 @@
         <p class="hero-sub">
           Lucide compare tes dépenses aux médianes réelles des Français. Tu vois exactement où tu te situes — et combien tu pourrais économiser chaque mois.
         </p>
-        <div class="ml-form-wrap">
-          <div id="mlb2-37641666" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-37641666">
-            <div class="ml-form-align-center">
-              <div class="ml-form-embedWrapper embedForm">
-                <div class="ml-form-embedBody ml-form-embedBodyDefault row-form">
-                  <form class="ml-block-form" action="https://assets.mailerlite.com/jsonp/2139724/forms/180367874625373265/subscribe" data-code="" method="post">
-                    <div class="ml-form-formContent">
-                      <div class="ml-form-fieldRow ml-last-item">
-                        <div class="ml-field-group ml-field-email ml-validate-email ml-validate-required">
-                          <input aria-label="email" aria-required="true" type="email" class="form-control" name="fields[email]" placeholder="ton@email.fr" autocomplete="email">
-                        </div>
-                      </div>
-                    </div>
-                    <input type="hidden" name="ml-submit" value="1">
-                    <div class="ml-form-embedSubmit">
-                      <button type="submit" class="primary">Je veux accès →</button>
-                      <button disabled="disabled" style="display:none;" type="button" class="loading">
-                        <div class="ml-form-embedSubmitLoad"></div>
-                        <span class="sr-only">Loading...</span>
-                      </button>
-                    </div>
-                    <input type="hidden" name="anticsrf" value="true">
-                  </form>
-                </div>
-                <div class="ml-form-successBody row-success" style="display:none">
-                  <div class="ml-form-successContent">
-                    <p style="color:var(--sage);font-weight:600;font-size:15px;">📬 C'est noté ! Vérifie ta boîte mail pour confirmer ton inscription — et on te prévient en priorité au lancement.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
+        <div class="lucide-form-wrap" id="lucide-form-hero">
+          <div class="row-form" style="display:flex;gap:10px;flex-wrap:wrap;">
+            <input type="email" id="hero-email" placeholder="ton@email.fr" autocomplete="email"
+              style="flex:1;min-width:200px;background:white;border:1.5px solid #e2ddd7;border-radius:8px;color:#1a1714;font-family:'DM Sans',sans-serif;font-size:15px;padding:14px 16px;box-sizing:border-box;outline:none;" />
+            <button onclick="lucideSubmit('hero-email','lucide-form-hero')"
+              style="background:#1a1714;border:none;border-radius:8px;color:white;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:600;padding:14px 24px;white-space:nowrap;transition:background 0.2s;"
+              onmouseover="this.style.background='#4a7c59'" onmouseout="this.style.background='#1a1714'">
+              Je veux accès →
+            </button>
+          </div>
+          <div class="row-success" style="display:none;padding:14px 0;">
+            <p style="color:#4a7c59;font-weight:700;font-size:15px;margin-bottom:6px;">📬 C'est presque bon !</p>
+            <p style="color:#4a4540;font-size:13px;line-height:1.6;margin:0;">Vérifie ta boîte mail et clique le lien de confirmation.<br><strong>Sans ça, tu ne recevras pas l'accès anticipé.</strong></p>
           </div>
         </div>
         <p class="hero-note"><strong>+314 personnes</strong> attendent déjà le lancement · Sans engagement</p>
@@ -895,7 +877,21 @@
           <li>Historique et suivi de progression</li>
           <li>Accès prioritaire aux nouvelles fonctionnalités</li>
         </ul>
-        <div id="mlb2-37641666" data-form-id="37641666" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-37641666" style="margin-top:24px;"><div class="ml-form-align-center"><div class="ml-form-embedWrapper embedForm" style="max-width:400px;margin:0 auto;"><div class="ml-form-embedBody ml-form-embedBodyDefault row-form"><form class="ml-block-form" action="https://assets.mailerlite.com/jsonp/2139724/forms/180367874625373265/subscribe" data-code="" method="post"><div class="ml-form-formContent"><div class="ml-form-fieldRow ml-last-item"><div class="ml-field-group ml-field-email ml-validate-email ml-validate-required"><input aria-label="email" aria-required="true" type="email" class="form-control" name="fields[email]" placeholder="ton@email.fr" autocomplete="email"></div></div></div><input type="hidden" name="ml-submit" value="1"><div class="ml-form-embedSubmit"><button type="submit" class="primary" style="background:#4a7c59!important;border-radius:8px!important;font-size:15px!important;padding:14px!important;">Commencer — 1er mois offert →</button><button disabled="disabled" style="display:none;" type="button" class="loading"></button></div><input type="hidden" name="anticsrf" value="true"></form></div><div class="ml-form-successBody row-success" style="display:none"><p style="color:#4a7c59;font-weight:600;text-align:center;">📬 C'est noté ! Vérifie ta boîte mail pour confirmer ton inscription — et on te prévient en priorité au lancement.</p></div></div></div></div>
+        <div class="lucide-form-wrap" id="lucide-form-pricing" style="margin-top:24px;max-width:400px;margin-left:auto;margin-right:auto;">
+          <div class="lucide-form-inner row-form">
+            <input type="email" id="pricing-email" placeholder="ton@email.fr" autocomplete="email"
+              style="width:100%;background:white;border:1.5px solid #e2ddd7;border-radius:8px;color:#1a1714;font-family:'DM Sans',sans-serif;font-size:15px;padding:14px 16px;box-sizing:border-box;margin-bottom:10px;outline:none;" />
+            <button onclick="lucideSubmit('pricing-email','lucide-form-pricing')"
+              style="width:100%;background:#4a7c59;border:none;border-radius:8px;color:white;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:600;padding:14px 24px;transition:background 0.2s;"
+              onmouseover="this.style.background='#3d6b4a'" onmouseout="this.style.background='#4a7c59'">
+              Commencer — 1er mois offert →
+            </button>
+          </div>
+          <div class="row-success" style="display:none;padding:12px 0;text-align:center;">
+            <p style="color:#4a7c59;font-weight:700;font-size:15px;margin-bottom:6px;">📬 C'est presque bon !</p>
+            <p style="color:#4a4540;font-size:13px;line-height:1.6;margin:0;">Vérifie ta boîte mail et clique le lien de confirmation.<br><strong>Sans ça, tu ne recevras pas l'accès anticipé.</strong></p>
+          </div>
+        </div><input type="hidden" name="ml-submit" value="1"><div class="ml-form-embedSubmit"><button type="submit" class="primary" style="background:#4a7c59!important;border-radius:8px!important;font-size:15px!important;padding:14px!important;">Commencer — 1er mois offert →</button><button disabled="disabled" style="display:none;" type="button" class="loading"></button></div><input type="hidden" name="anticsrf" value="true"></form></div><div class="ml-form-successBody row-success" style="display:none"><p style="color:#4a7c59;font-weight:600;text-align:center;">📬 C'est noté ! Vérifie ta boîte mail pour confirmer ton inscription — et on te prévient en priorité au lancement.</p></div></div></div></div>
       </div>
     </div>
   </section>
