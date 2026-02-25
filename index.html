@@ -605,6 +605,47 @@
       .stats-bar { gap: 40px; padding: 40px 24px; }
       footer { flex-direction: column; gap: 16px; text-align: center; padding: 32px 24px; }
     }
+
+    /* MailerLite override */
+    .ml-form-wrap { width: 100%; }
+    .ml-form-embedContainer { box-sizing: border-box; width: 100% !important; }
+    .ml-form-embedWrapper { background: transparent !important; border: none !important; width: 100% !important; max-width: 100% !important; }
+    .ml-form-embedWrapper.embedForm { max-width: 100% !important; width: 100% !important; }
+    .ml-form-embedBody { padding: 0 !important; }
+    .ml-form-embedContent { display: none !important; }
+    .ml-form-formContent { margin: 0 0 12px 0 !important; }
+    .ml-form-fieldRow { margin: 0 !important; }
+    .ml-form-embedBody .form-control {
+      background: white !important;
+      border: 1.5px solid #e2ddd7 !important;
+      border-radius: 8px !important;
+      color: #1a1714 !important;
+      font-family: 'DM Sans', sans-serif !important;
+      font-size: 15px !important;
+      padding: 14px 16px !important;
+      width: 100% !important;
+      box-sizing: border-box !important;
+    }
+    .ml-form-embedSubmit { margin: 0 !important; width: 100% !important; float: none !important; }
+    .ml-form-embedSubmit button.primary {
+      background: #1a1714 !important;
+      border: none !important;
+      border-radius: 8px !important;
+      color: white !important;
+      cursor: pointer !important;
+      font-family: 'DM Sans', sans-serif !important;
+      font-size: 15px !important;
+      font-weight: 600 !important;
+      padding: 14px 24px !important;
+      width: 100% !important;
+      transition: background 0.2s !important;
+    }
+    .ml-form-embedSubmit button.primary:hover { background: #4a7c59 !important; }
+    .ml-form-successContent { padding: 12px 0; }
+    .ml-form-embedSubmitLoad { display:inline-block;width:16px;height:16px; }
+    .ml-form-embedSubmitLoad:after { content:" ";display:block;width:12px;height:12px;border-radius:50%;border:3px solid #fff;border-color:#fff #fff #fff transparent;animation:ml-spin 1.2s linear infinite; }
+    @keyframes ml-spin { 0%{transform:rotate(0)} 100%{transform:rotate(360deg)} }
+    .sr-only { position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0; }
   </style>
 </head>
 <body>
@@ -624,9 +665,38 @@
         <p class="hero-sub">
           Lucide compare tes dépenses aux médianes réelles des Français. Tu vois exactement où tu te situes — et combien tu pourrais économiser chaque mois.
         </p>
-        <div class="email-form">
-          <input id="waitlist" type="email" placeholder="ton@email.fr" />
-          <button>Je veux accès →</button>
+        <div class="ml-form-wrap">
+          <div id="mlb2-37641666" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-37641666">
+            <div class="ml-form-align-center">
+              <div class="ml-form-embedWrapper embedForm">
+                <div class="ml-form-embedBody ml-form-embedBodyDefault row-form">
+                  <form class="ml-block-form" action="https://assets.mailerlite.com/jsonp/2139724/forms/180367874625373265/subscribe" data-code="" method="post" target="_blank">
+                    <div class="ml-form-formContent">
+                      <div class="ml-form-fieldRow ml-last-item">
+                        <div class="ml-field-group ml-field-email ml-validate-email ml-validate-required">
+                          <input aria-label="email" aria-required="true" type="email" class="form-control" name="fields[email]" placeholder="ton@email.fr" autocomplete="email">
+                        </div>
+                      </div>
+                    </div>
+                    <input type="hidden" name="ml-submit" value="1">
+                    <div class="ml-form-embedSubmit">
+                      <button type="submit" class="primary">Je veux accès →</button>
+                      <button disabled="disabled" style="display:none;" type="button" class="loading">
+                        <div class="ml-form-embedSubmitLoad"></div>
+                        <span class="sr-only">Loading...</span>
+                      </button>
+                    </div>
+                    <input type="hidden" name="anticsrf" value="true">
+                  </form>
+                </div>
+                <div class="ml-form-successBody row-success" style="display:none">
+                  <div class="ml-form-successContent">
+                    <p style="color:var(--sage);font-weight:600;font-size:15px;">✓ C'est noté ! On te prévient en priorité.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
         <p class="hero-note"><strong>+314 personnes</strong> attendent déjà le lancement · Sans engagement</p>
       </div>
@@ -825,7 +895,7 @@
           <li>Historique et suivi de progression</li>
           <li>Accès prioritaire aux nouvelles fonctionnalités</li>
         </ul>
-        <button class="cta-big">Commencer — 1er mois offert →</button>
+        <div id="mlb2-37641666b" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-37641666" style="margin-top:24px;"><div class="ml-form-align-center"><div class="ml-form-embedWrapper embedForm" style="max-width:400px;margin:0 auto;"><div class="ml-form-embedBody ml-form-embedBodyDefault row-form"><form class="ml-block-form" action="https://assets.mailerlite.com/jsonp/2139724/forms/180367874625373265/subscribe" data-code="" method="post" target="_blank"><div class="ml-form-formContent"><div class="ml-form-fieldRow ml-last-item"><div class="ml-field-group ml-field-email ml-validate-email ml-validate-required"><input aria-label="email" aria-required="true" type="email" class="form-control" name="fields[email]" placeholder="ton@email.fr" autocomplete="email"></div></div></div><input type="hidden" name="ml-submit" value="1"><div class="ml-form-embedSubmit"><button type="submit" class="primary" style="background:#4a7c59!important;border-radius:8px!important;font-size:15px!important;padding:14px!important;">Commencer — 1er mois offert →</button><button disabled="disabled" style="display:none;" type="button" class="loading"></button></div><input type="hidden" name="anticsrf" value="true"></form></div><div class="ml-form-successBody row-success" style="display:none"><p style="color:#4a7c59;font-weight:600;text-align:center;">✓ C'est noté ! On te prévient en priorité.</p></div></div></div></div>
       </div>
     </div>
   </section>
@@ -860,8 +930,4 @@
   <footer>
     <div class="footer-logo"><span>Lucide</span></div>
     <div class="footer-note">© 2025 Lucide · RGPD · Données sourcées INSEE + lesfurets 2025</div>
-    <div class="footer-note">contact@lucide.fr</div>
-  </footer>
-
-</body>
-</html>
+    <div class="footer-note"><a href="/cdn-cgi/l/email-protection" class="__cf_ema
