@@ -722,6 +722,10 @@ ml('account', '2139724');
     function showSuccess() {
       container.querySelector('.row-form').style.display = 'none';
       container.querySelector('.row-success').style.display = 'block';
+      // Appel à la fonction de redirection MailerLite après succès
+      if (typeof window.ml_webform_success_37641666 === 'function') {
+        window.ml_webform_success_37641666();
+      }
     }
 
     // Fallback : affiche le succès après 4s max si JSONP ne répond pas
@@ -731,28 +735,27 @@ ml('account', '2139724');
     var cb = 'mlcb' + Date.now();
     window[cb] = function() {
       clearTimeout(fallback);
-      showSuccess();
+      showSuccess();  // Affiche succès et redirige
       delete window[cb];
       if (s.parentNode) s.remove();
     };
     s.onerror = function() {
       clearTimeout(fallback);
-      showSuccess();
+      showSuccess();  // Même en erreur, affiche et tente redirect (ou ajuste si besoin)
     };
     s.src = 'https://assets.mailerlite.com/jsonp/2139724/forms/180367874625373265/subscribe?fields[email]='
       + encodeURIComponent(email) + '&ml-submit=1&anticsrf=true&callback=' + cb;
     document.body.appendChild(s);
-    re
-
-
-
-
-t
+  }
+</script>
 
 <script>
 function ml_webform_success_37641666() {
   window.location.href = '/merci';
 }
+</script>
+</body>
+</html>
 </script>
 </body>
 </html>
