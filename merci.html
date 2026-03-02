@@ -2,133 +2,71 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8"/>
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cg transform='translate(16,16)'%3E%3Crect x='-11' y='-11' width='22' height='22' rx='2.5' transform='rotate(45)' fill='%23C4891A'/%3E%3Crect x='-6' y='-6' width='12' height='12' rx='1.5' transform='rotate(45)' fill='%23f7f4ef'/%3E%3Ccircle cx='0' cy='0' r='2' fill='%23C4891A'/%3E%3C/g%3E%3C/svg%3E"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Lucide — Merci !</title>
+<title>Lucide — Bienvenue !</title>
 <meta name="robots" content="noindex"/>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cg transform='translate(16,16)'%3E%3Crect x='-11' y='-11' width='22' height='22' rx='2.5' transform='rotate(45)' fill='%23C4891A'/%3E%3Crect x='-6' y='-6' width='12' height='12' rx='1.5' transform='rotate(45)' fill='%23f7f4ef'/%3E%3Ccircle cx='0' cy='0' r='2' fill='%23C4891A'/%3E%3C/g%3E%3C/svg%3E"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: 'DM Sans', sans-serif; background: #f0ede8; color: #1a1714; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 24px; }
+  body { font-family: 'DM Sans', sans-serif; background: #f0ede8; color: #1a1714; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 24px; }
+  .card { background: white; border-radius: 24px; border: 1px solid #e2ddd7; overflow: hidden; box-shadow: 0 8px 40px rgba(26,23,20,0.10); max-width: 480px; width: 100%; }
+  .top-bar { height: 4px; background: #C4891A; }
+  .content { padding: 48px 40px 44px; text-align: center; }
+  .icon { width: 72px; height: 72px; background: #f5e6cc; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 24px; font-size: 32px; }
+  h1 { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 900; color: #1a1714; margin: 0 0 12px; letter-spacing: -0.5px; line-height: 1.2; }
+  .sub { font-size: 16px; color: #4a4540; line-height: 1.7; margin: 0 0 36px; font-weight: 300; }
+  .cta { display: inline-block; background: #C4891A; color: white; padding: 18px 48px; border-radius: 12px; font-size: 16px; font-weight: 700; text-decoration: none; letter-spacing: 0.3px; box-shadow: 0 4px 20px rgba(196,137,26,0.30); margin-bottom: 12px; }
+  .cta-sub { font-size: 12px; color: #9a9490; margin: 0 0 32px; }
+  .features { background: #f7f4ef; border-radius: 14px; padding: 20px 24px; text-align: left; margin-bottom: 8px; }
+  .features-title { font-size: 10px; font-weight: 700; color: #C4891A; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px; }
+  .feature { font-size: 13px; color: #4a4540; padding: 5px 0; display: flex; align-items: center; gap: 10px; font-weight: 300; }
+  .feature strong { color: #1a1714; font-weight: 600; }
+  .footer { padding: 20px 0 0; text-align: center; }
+  .footer p { font-size: 11px; color: #c0bbb6; }
+  .footer a { color: #c0bbb6; text-decoration: none; }
 </style>
 </head>
 <body>
-
-  <table width="100%" cellpadding="0" cellspacing="0" style="max-width:560px;margin:0 auto;">
-
+  <div>
     <!-- Logo -->
-    <tr>
-      <td align="center" style="padding-bottom:32px;">
-        <img src="/lucide-logo.png" alt="Lucide" width="120" style="display:block;margin:0 auto;"/>
-      </td>
-    </tr>
+    <div style="text-align:center;margin-bottom:28px;">
+      <img src="/lucide-logo.png" alt="Lucide" width="110" style="display:inline-block;"/>
+    </div>
 
     <!-- Card -->
-    <tr>
-      <td style="background:white;border-radius:24px;border:1px solid #e2ddd7;overflow:hidden;box-shadow:0 8px 40px rgba(26,23,20,0.10);">
+    <div class="card">
+      <div class="top-bar"></div>
+      <div class="content">
 
-        <!-- Barre dorée -->
-        <table width="100%" cellpadding="0" cellspacing="0">
-          <tr><td style="height:4px;background:#C4891A;font-size:0;">&nbsp;</td></tr>
-        </table>
+        <div class="icon">&#127881;</div>
 
-        <table width="100%" cellpadding="0" cellspacing="0">
-          <tr>
-            <td style="padding:48px 40px 44px;text-align:center;">
+        <h1>Ton acc&egrave;s est activ&eacute; !</h1>
+        <p class="sub">
+          Tu fais partie des premiers &agrave; acc&eacute;der &agrave; Lucide.<br/>
+          <strong style="color:#1a1714;">Cr&eacute;e ton compte et calcule ton score maintenant.</strong>
+        </p>
 
-              <!-- Icône -->
-              <div style="width:72px;height:72px;background:#f5e6cc;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 24px;font-size:32px;line-height:72px;">
-                &#127881;
-              </div>
+        <a href="https://app.lucide.me" class="cta">
+          Calculer mon score gratuitement &rarr;
+        </a>
+        <p class="cta-sub">Gratuit &middot; Sans CB &middot; 2 minutes</p>
 
-              <!-- Titre -->
-              <h1 style="font-family:'Playfair Display',Georgia,serif;font-size:28px;font-weight:900;color:#1a1714;margin:0 0 12px;letter-spacing:-0.5px;line-height:1.2;">
-                C'est dans la boite !
-              </h1>
-              <p style="font-family:'DM Sans',Arial,sans-serif;font-size:16px;color:#4a4540;line-height:1.7;margin:0 0 32px;font-weight:300;">
-                V&eacute;rifie ta bo&icirc;te mail &mdash; ton lien d'acc&egrave;s &agrave; la beta<br/>
-                <strong style="color:#1a1714;font-weight:600;">arrive dans les prochaines secondes.</strong>
-              </p>
+        <div class="features">
+          <div class="features-title">Ce qui t'attend</div>
+          <div class="feature">&#128202; &nbsp;<span><strong>Score sur 100</strong> — compar&eacute; aux m&eacute;dianes INSEE</span></div>
+          <div class="feature">&#128193; &nbsp;<span><strong>11 cat&eacute;gories</strong> — ajust&eacute;es &agrave; ta ville et ton profil</span></div>
+          <div class="feature">&#128161; &nbsp;<span><strong>Alertes personnalis&eacute;es</strong> — o&ugrave; tu d&eacute;passes la m&eacute;diane</span></div>
+          <div class="feature">&#128176; &nbsp;<span><strong>Reste &agrave; vivre</strong> — et taux d'&eacute;pargne en temps r&eacute;el</span></div>
+        </div>
 
-              <!-- Ce qui t'attend -->
-              <table width="100%" cellpadding="0" cellspacing="0" style="background:#f7f4ef;border-radius:16px;margin-bottom:32px;text-align:left;">
-                <tr>
-                  <td style="padding:24px 28px;">
-                    <p style="font-family:'DM Sans',Arial,sans-serif;font-size:11px;font-weight:700;color:#C4891A;text-transform:uppercase;letter-spacing:2px;margin:0 0 16px;">Ce qui t'attend dans la beta</p>
-                    <table width="100%" cellpadding="0" cellspacing="0">
-                      <tr>
-                        <td style="padding:7px 0;border-bottom:1px solid #e8e4de;">
-                          <table cellpadding="0" cellspacing="0"><tr>
-                            <td style="font-size:18px;padding-right:12px;vertical-align:middle;">&#128202;</td>
-                            <td style="font-family:'DM Sans',Arial,sans-serif;font-size:13px;color:#1a1714;font-weight:500;">Ton score budget sur 100 &mdash; <span style="color:#9a9490;font-weight:300;">donn&eacute;es INSEE 2024</span></td>
-                          </tr></table>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td style="padding:7px 0;border-bottom:1px solid #e8e4de;">
-                          <table cellpadding="0" cellspacing="0"><tr>
-                            <td style="font-size:18px;padding-right:12px;vertical-align:middle;">&#128193;</td>
-                            <td style="font-family:'DM Sans',Arial,sans-serif;font-size:13px;color:#1a1714;font-weight:500;">11 cat&eacute;gories &mdash; <span style="color:#9a9490;font-weight:300;">ajust&eacute;es &agrave; ta ville et ton profil</span></td>
-                          </tr></table>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td style="padding:7px 0;border-bottom:1px solid #e8e4de;">
-                          <table cellpadding="0" cellspacing="0"><tr>
-                            <td style="font-size:18px;padding-right:12px;vertical-align:middle;">&#128161;</td>
-                            <td style="font-family:'DM Sans',Arial,sans-serif;font-size:13px;color:#1a1714;font-weight:500;">Tes alertes &mdash; <span style="color:#9a9490;font-weight:300;">les postes o&ugrave; tu d&eacute;passes la m&eacute;diane</span></td>
-                          </tr></table>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td style="padding:7px 0;">
-                          <table cellpadding="0" cellspacing="0"><tr>
-                            <td style="font-size:18px;padding-right:12px;vertical-align:middle;">&#128176;</td>
-                            <td style="font-family:'DM Sans',Arial,sans-serif;font-size:13px;color:#1a1714;font-weight:500;">Reste &agrave; vivre &amp; taux d'&eacute;pargne &mdash; <span style="color:#9a9490;font-weight:300;">en temps r&eacute;el</span></td>
-                          </tr></table>
-                        </td>
-                      </tr>
-                    </table>
-                  </td>
-                </tr>
-              </table>
-
-              <!-- CTA direct -->
-              <table cellpadding="0" cellspacing="0" style="margin:0 auto 20px;">
-                <tr>
-                  <td align="center" style="background:#C4891A;border-radius:12px;">
-                    <a href="https://app.lucide.me" target="_blank"
-                       style="display:inline-block;padding:16px 40px;font-family:'DM Sans',Arial,sans-serif;font-size:15px;font-weight:700;color:#ffffff;text-decoration:none;letter-spacing:0.3px;">
-                      Acc&eacute;der &agrave; la beta maintenant &rarr;
-                    </a>
-                  </td>
-                </tr>
-              </table>
-
-              <p style="font-family:'DM Sans',Arial,sans-serif;font-size:12px;color:#9a9490;margin:0;">
-                Gratuit &middot; Sans CB &middot; 2 minutes chrono
-              </p>
-
-            </td>
-          </tr>
-        </table>
-      </td>
-    </tr>
+      </div>
+    </div>
 
     <!-- Footer -->
-    <tr>
-      <td style="padding:24px 0 0;text-align:center;">
-        <p style="font-family:'DM Sans',Arial,sans-serif;font-size:12px;color:#c0bbb6;margin:0 0 4px;">
-          Tu n'as pas re&ccedil;u l'email ?
-          <a href="mailto:hello@lucide.me" style="color:#C4891A;text-decoration:none;">hello@lucide.me</a>
-        </p>
-        <p style="font-family:'DM Sans',Arial,sans-serif;font-size:11px;color:#c0bbb6;margin:0;">
-          &copy; 2026 Lucide &middot; <a href="https://lucide.me" style="color:#c0bbb6;text-decoration:none;">lucide.me</a>
-        </p>
-      </td>
-    </tr>
-
-  </table>
-
+    <div class="footer">
+      <p>&copy; 2026 Lucide &middot; <a href="https://lucide.me">lucide.me</a> &middot; <a href="mailto:hello@lucide.me">hello@lucide.me</a></p>
+    </div>
+  </div>
 </body>
 </html>
