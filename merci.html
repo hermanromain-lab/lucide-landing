@@ -6,32 +6,112 @@
 <title>Lucide — Bienvenue !</title>
 <meta name="robots" content="noindex"/>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cg transform='translate(16,16)'%3E%3Crect x='-11' y='-11' width='22' height='22' rx='2.5' transform='rotate(45)' fill='%23C4891A'/%3E%3Crect x='-6' y='-6' width='12' height='12' rx='1.5' transform='rotate(45)' fill='%23f7f4ef'/%3E%3Ccircle cx='0' cy='0' r='2' fill='%23C4891A'/%3E%3C/g%3E%3C/svg%3E"/>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet"/>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: 'DM Sans', sans-serif; background: #f0ede8; color: #1a1714; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 24px; }
-  .card { background: white; border-radius: 24px; border: 1px solid #e2ddd7; overflow: hidden; box-shadow: 0 8px 40px rgba(26,23,20,0.10); max-width: 480px; width: 100%; }
-  .top-bar { height: 4px; background: #C4891A; }
+  body {
+    font-family: 'DM Sans', sans-serif; background: #f7f4ef; color: #1a1714;
+    min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 24px;
+  }
+  .wrapper { max-width: 480px; width: 100%; }
+
+  /* Logo */
+  .logo {
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+    margin-bottom: 32px;
+  }
+  .logo em {
+    font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 900;
+    color: #C4891A; font-style: italic;
+  }
+
+  /* Card */
+  .card {
+    background: white; border-radius: 24px; border: 1px solid #e2ddd7;
+    overflow: hidden; box-shadow: 0 24px 64px rgba(26,23,20,0.09);
+  }
+  .top-bar { height: 3px; background: #4a7c59; }
   .content { padding: 48px 40px 44px; text-align: center; }
-  .icon { width: 72px; height: 72px; background: #f5e6cc; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 24px; font-size: 32px; }
-  h1 { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 900; color: #1a1714; margin: 0 0 12px; letter-spacing: -0.5px; line-height: 1.2; }
-  .sub { font-size: 16px; color: #4a4540; line-height: 1.7; margin: 0 0 36px; font-weight: 300; }
-  .cta { display: inline-block; background: #C4891A; color: white; padding: 18px 48px; border-radius: 12px; font-size: 16px; font-weight: 700; text-decoration: none; letter-spacing: 0.3px; box-shadow: 0 4px 20px rgba(196,137,26,0.30); margin-bottom: 12px; }
-  .cta-sub { font-size: 12px; color: #9a9490; margin: 0 0 32px; }
-  .features { background: #f7f4ef; border-radius: 14px; padding: 20px 24px; text-align: left; margin-bottom: 8px; }
-  .features-title { font-size: 10px; font-weight: 700; color: #C4891A; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px; }
-  .feature { font-size: 13px; color: #4a4540; padding: 5px 0; display: flex; align-items: center; gap: 10px; font-weight: 300; }
+
+  .icon {
+    width: 72px; height: 72px; background: #d4e8da; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 24px; font-size: 32px;
+  }
+
+  h1 {
+    font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 900;
+    color: #1a1714; margin: 0 0 12px; letter-spacing: -0.5px; line-height: 1.2;
+  }
+  h1 em { color: #4a7c59; font-style: italic; }
+
+  .sub {
+    font-size: 16px; color: #4a4540; line-height: 1.7; margin: 0 0 36px; font-weight: 300;
+  }
+  .sub strong { color: #1a1714; font-weight: 600; }
+
+  .cta {
+    display: inline-block; background: #C4891A; color: white;
+    padding: 18px 48px; border-radius: 12px; font-family: 'DM Sans', sans-serif;
+    font-size: 16px; font-weight: 700; text-decoration: none; letter-spacing: 0.3px;
+    box-shadow: 0 4px 20px rgba(196,137,26,0.30); margin-bottom: 12px;
+    transition: background 0.2s;
+  }
+  .cta:hover { background: #a8730f; }
+
+  .cta-sub { font-size: 12px; color: #7a756f; margin: 0 0 32px; }
+
+  .features {
+    background: #f7f4ef; border-radius: 14px; padding: 20px 24px;
+    text-align: left; margin-bottom: 8px;
+  }
+  .features-title {
+    font-size: 10px; font-weight: 700; color: #4a7c59;
+    text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px;
+  }
+  .feature {
+    font-size: 13px; color: #4a4540; padding: 5px 0;
+    display: flex; align-items: center; gap: 10px; font-weight: 300;
+  }
   .feature strong { color: #1a1714; font-weight: 600; }
-  .footer { padding: 20px 0 0; text-align: center; }
-  .footer p { font-size: 11px; color: #c0bbb6; }
-  .footer a { color: #c0bbb6; text-decoration: none; }
+
+  /* Footer */
+  .page-footer {
+    padding: 24px 0 0; text-align: center;
+  }
+  .page-footer p { font-size: 11px; color: #7a756f; }
+  .page-footer a { color: #7a756f; text-decoration: none; transition: color .2s; }
+  .page-footer a:hover { color: #4a4540; }
+
+  /* Animation */
+  @keyframes fadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+  .wrapper > * { animation: fadeUp 0.5s ease both; }
+  .wrapper > *:nth-child(1) { animation-delay: 0s; }
+  .wrapper > *:nth-child(2) { animation-delay: 0.1s; }
+  .wrapper > *:nth-child(3) { animation-delay: 0.2s; }
+
+  @media(max-width:520px){
+    .content { padding: 36px 24px 32px; }
+    h1 { font-size: 24px; }
+    .cta { padding: 16px 36px; font-size: 15px; }
+  }
 </style>
 </head>
 <body>
-  <div>
-    <!-- Logo -->
-    <div style="text-align:center;margin-bottom:28px;">
-      <img src="/lucide-logo.png" alt="Lucide" width="110" style="display:inline-block;"/>
+  <div class="wrapper">
+
+    <!-- Logo SVG inline — même que la landing -->
+    <div class="logo">
+      <svg viewBox="0 0 36 36" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+        <g transform="translate(18,18)">
+          <rect x="-13" y="-13" width="26" height="26" rx="3" transform="rotate(45)" fill="#C4891A"/>
+          <rect x="-7" y="-7" width="14" height="14" rx="1.5" transform="rotate(45)" fill="#f7f4ef"/>
+          <circle cx="0" cy="0" r="2.5" fill="#C4891A"/>
+          <line x1="-6" y1="0" x2="6" y2="0" stroke="#C4891A" stroke-width="1.2" opacity="0.35"/>
+          <line x1="0" y1="-6" x2="0" y2="6" stroke="#C4891A" stroke-width="1.2" opacity="0.35"/>
+        </g>
+      </svg>
+      <em>Lucide</em>
     </div>
 
     <!-- Card -->
@@ -39,34 +119,35 @@
       <div class="top-bar"></div>
       <div class="content">
 
-        <div class="icon">&#127881;</div>
+        <div class="icon">🎉</div>
 
-        <h1>Ton acc&egrave;s est activ&eacute; !</h1>
+        <h1>Ton accès est <em>activé</em> !</h1>
         <p class="sub">
-          Tu fais partie des premiers &agrave; acc&eacute;der &agrave; Lucide.<br/>
-          <strong style="color:#1a1714;">Cr&eacute;e ton compte et calcule ton score maintenant.</strong>
+          Tu fais partie des premiers à accéder à Lucide.<br/>
+          <strong>Crée ton compte et calcule ton score maintenant.</strong>
         </p>
 
         <a href="https://app.lucide.me" class="cta">
-          Calculer mon score gratuitement &rarr;
+          Calculer mon score gratuitement →
         </a>
-        <p class="cta-sub">Gratuit &middot; Sans CB &middot; 2 minutes</p>
+        <p class="cta-sub">Gratuit · Sans CB · 2 minutes</p>
 
         <div class="features">
           <div class="features-title">Ce qui t'attend</div>
-          <div class="feature">&#128202; &nbsp;<span><strong>Score sur 100</strong> — compar&eacute; aux m&eacute;dianes INSEE</span></div>
-          <div class="feature">&#128193; &nbsp;<span><strong>11 cat&eacute;gories</strong> — ajust&eacute;es &agrave; ta ville et ton profil</span></div>
-          <div class="feature">&#128161; &nbsp;<span><strong>Alertes personnalis&eacute;es</strong> — o&ugrave; tu d&eacute;passes la m&eacute;diane</span></div>
-          <div class="feature">&#128176; &nbsp;<span><strong>Reste &agrave; vivre</strong> — et taux d'&eacute;pargne en temps r&eacute;el</span></div>
+          <div class="feature">📊 <span><strong>Score sur 100</strong> — comparé aux médianes INSEE</span></div>
+          <div class="feature">🗂 <span><strong>11 catégories</strong> — ajustées à ta ville et ton profil</span></div>
+          <div class="feature">💡 <span><strong>Alertes personnalisées</strong> — où tu dépasses la médiane</span></div>
+          <div class="feature">💰 <span><strong>Reste à vivre</strong> — et taux d'épargne en temps réel</span></div>
         </div>
 
       </div>
     </div>
 
     <!-- Footer -->
-    <div class="footer">
-      <p>&copy; 2026 Lucide &middot; <a href="https://lucide.me">lucide.me</a> &middot; <a href="mailto:hello@lucide.me">hello@lucide.me</a></p>
+    <div class="page-footer">
+      <p>© 2025 Lucide · <a href="https://lucide.me">lucide.me</a> · <a href="mailto:hello@lucide.me">hello@lucide.me</a></p>
     </div>
+
   </div>
 </body>
 </html>
