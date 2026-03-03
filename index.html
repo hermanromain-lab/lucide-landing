@@ -4,7 +4,6 @@
 <meta charset="UTF-8"/>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cg transform='translate(16,16)'%3E%3Crect x='-11' y='-11' width='22' height='22' rx='2.5' transform='rotate(45)' fill='%23C4891A'/%3E%3Crect x='-6' y='-6' width='12' height='12' rx='1.5' transform='rotate(45)' fill='%23f7f4ef'/%3E%3Ccircle cx='0' cy='0' r='2' fill='%23C4891A'/%3E%3C/g%3E%3C/svg%3E"/>
 
-<!-- FIX: removed user-scalable=no for accessibility -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Lucide — Calcule ton score budget gratuitement · Données INSEE 2024</title>
 <meta name="description" content="Lucide compare tes dépenses aux médianes réelles des Français et te donne un plan d'action IA personnalisé. Données INSEE 2024. Accès anticipé gratuit."/>
@@ -14,7 +13,6 @@
 <meta property="og:description" content="Compare tes dépenses aux médianes réelles des Français. Découvre combien tu pourrais économiser chaque mois."/>
 <meta property="og:url" content="https://lucide.me"/>
 <meta property="og:type" content="website"/>
-<!-- FIX: Added og:image — remplacer par votre vraie image 1200x630 -->
 <meta property="og:image" content="https://lucide.me/og-image.png"/>
 <meta property="og:image:width" content="1200"/>
 <meta property="og:image:height" content="630"/>
@@ -22,7 +20,6 @@
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://lucide.me/og-image.png"/>
 
-<!-- FIX: Optimized font loading — only weights actually used -->
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet"/>
 
 <!-- MailerLite Universal -->
@@ -35,7 +32,7 @@ ml('account', '2139724');
 </script>
 <!-- End MailerLite Universal -->
 
-<!-- Plausible Analytics — RGPD friendly, no cookies -->
+<!-- Plausible Analytics — décommenter après création du compte -->
 <!-- <script defer data-domain="lucide.me" src="https://plausible.io/js/script.js"></script> -->
 
 <style>
@@ -43,7 +40,7 @@ ml('account', '2139724');
     --cream: #f7f4ef;
     --ink: #1a1714;
     --ink-mid: #4a4540;
-    --ink-light: #7a756f; /* FIX: darkened from #9a9490 for WCAG AA contrast */
+    --ink-light: #7a756f;
     --rule: #e2ddd7;
     --sage: #4a7c59;
     --sage-light: #d4e8da;
@@ -94,7 +91,6 @@ ml('account', '2139724');
     font-size: 17px; color: var(--ink-mid); font-weight: 300;
     line-height: 1.75; margin-bottom: 36px; max-width: 460px;
   }
-  /* FIX: hero stat callout for concrete proof */
   .hero-proof {
     display: inline-flex; align-items: center; gap: 8px;
     background: var(--sage-light); color: var(--sage-dark);
@@ -145,7 +141,6 @@ ml('account', '2139724');
   }
   .stat-l { font-size: 11px; color: rgba(255,255,255,.5); margin-top: 5px; text-transform: uppercase; letter-spacing: 1.5px; }
 
-  /* ─── DIVIDER ─── */
   hr { border: none; border-top: 1px solid var(--rule); margin: 0; }
 
   /* ─── SECTIONS ─── */
@@ -172,7 +167,7 @@ ml('account', '2139724');
   .problem-text { font-size: 18px; color: var(--ink-mid); font-weight: 300; line-height: 1.8; }
   .problem-text strong { color: var(--ink); font-weight: 600; }
 
-  /* ─── HOW IT WORKS ─── */
+  /* ─── STEPS ─── */
   .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 52px; }
   .step {
     background: white; border-radius: 20px; padding: 32px;
@@ -216,7 +211,7 @@ ml('account', '2139724');
     font-size: 14px; color: var(--ink-mid); display: flex; align-items: center; gap: 10px;
   }
   .price-features li:last-child { border-bottom: none; }
-  .price-features li::before { content: '✓'; color: var(--sage); font-weight: 700; flex-shrink: 0; }
+  .price-features li::before { content: '\2713'; color: var(--sage); font-weight: 700; flex-shrink: 0; }
 
   /* ─── TESTIMONIALS ─── */
   .testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 52px; }
@@ -233,9 +228,7 @@ ml('account', '2139724');
 
   /* ─── FAQ ─── */
   .faq-list { max-width: 700px; margin: 48px auto 0; }
-  .faq-item {
-    border-bottom: 1px solid var(--rule); overflow: hidden;
-  }
+  .faq-item { border-bottom: 1px solid var(--rule); overflow: hidden; }
   .faq-item summary {
     display: flex; justify-content: space-between; align-items: center;
     padding: 20px 0; cursor: pointer; font-size: 15px; font-weight: 600;
@@ -253,16 +246,22 @@ ml('account', '2139724');
     font-weight: 300; line-height: 1.75;
   }
 
-  /* ─── BOTTOM CTA ─── */
-  .bottom-cta-section {
-    background: var(--ink); padding: 72px 48px; text-align: center;
+  /* ─── SCROLL CTA BUTTONS (pricing + bottom) ─── */
+  .btn-scroll-cta {
+    background: #4a7c59; border: none; border-radius: 8px; color: white;
+    cursor: pointer; font-family: 'DM Sans', sans-serif; font-size: 15px;
+    font-weight: 600; padding: 14px 24px; width: 100%; transition: background 0.2s;
   }
+  .btn-scroll-cta:hover { background: #3d6b4a; }
+
+  /* ─── BOTTOM CTA ─── */
+  .bottom-cta-section { background: #1a1714; padding: 72px 48px; text-align: center; }
   .bottom-cta-inner { max-width: 520px; margin: 0 auto; }
   .bottom-cta-title {
     font-family: 'Playfair Display', serif; font-size: clamp(28px, 3vw, 40px);
     font-weight: 900; color: white; letter-spacing: -1px; line-height: 1.15; margin-bottom: 16px;
   }
-  .bottom-cta-title em { color: var(--sage-light); font-style: italic; }
+  .bottom-cta-title em { color: #d4e8da; font-style: italic; }
   .bottom-cta-sub {
     font-size: 15px; color: rgba(255,255,255,.55); font-weight: 300;
     line-height: 1.7; margin-bottom: 32px;
@@ -293,40 +292,23 @@ ml('account', '2139724');
   .ml-form-fieldRow { margin: 0 !important; }
   .ml-form-embedBody input[type="email"],
   .ml-form-embedBody .form-control {
-    background: white !important; border: 1.5px solid var(--rule) !important;
-    border-radius: 8px !important; color: var(--ink) !important;
+    background: white !important; border: 1.5px solid #e2ddd7 !important;
+    border-radius: 8px !important; color: #1a1714 !important;
     font-family: 'DM Sans', sans-serif !important; font-size: 15px !important;
     padding: 14px 16px !important; width: 100% !important;
     box-sizing: border-box !important; outline: none !important; transition: border-color 0.2s !important;
   }
   .ml-form-embedBody input[type="email"]:focus,
-  .ml-form-embedBody .form-control:focus { border-color: var(--sage) !important; }
+  .ml-form-embedBody .form-control:focus { border-color: #4a7c59 !important; }
   .ml-form-embedSubmit { margin: 0 !important; width: 100% !important; float: none !important; }
   .ml-form-embedSubmit button.primary {
-    background: var(--gold) !important; border: none !important;
+    background: #C4891A !important; border: none !important;
     border-radius: 8px !important; color: white !important; cursor: pointer !important;
     font-family: 'DM Sans', sans-serif !important; font-size: 15px !important;
     font-weight: 600 !important; padding: 14px 24px !important;
     width: 100% !important; transition: background 0.2s !important; margin-top: 10px !important;
   }
   .ml-form-embedSubmit button.primary:hover { background: #a8730f !important; }
-
-  /* Dark theme CTA overrides */
-  .bottom-cta-form .ml-form-embedBody input[type="email"],
-  .bottom-cta-form .ml-form-embedBody .form-control {
-    background: rgba(255,255,255,.08) !important;
-    border-color: rgba(255,255,255,.15) !important;
-    color: white !important;
-  }
-  .bottom-cta-form .ml-form-embedBody input[type="email"]::placeholder { color: rgba(255,255,255,.35) !important; }
-  .bottom-cta-form .ml-form-embedBody input[type="email"]:focus { border-color: var(--sage-light) !important; }
-  .bottom-cta-form .ml-form-embedSubmit button.primary {
-    background: var(--sage) !important;
-  }
-  .bottom-cta-form .ml-form-embedSubmit button.primary:hover { background: var(--sage-dark) !important; }
-
-  .price-form .ml-form-embedSubmit button.primary { background: var(--sage) !important; }
-  .price-form .ml-form-embedSubmit button.primary:hover { background: var(--sage-dark) !important; }
   .ml-form-successContent { padding: 16px 0 4px; }
   .ml-form-embedSubmitLoad { display:inline-block;width:16px;height:16px; }
   .ml-form-embedSubmitLoad:after { content:" ";display:block;width:12px;height:12px;border-radius:50%;border:3px solid #fff;border-color:#fff #fff #fff transparent;animation:ml-spin 1.2s linear infinite; }
@@ -339,19 +321,19 @@ ml('account', '2139724');
     padding: 4px; background: none; border: none;
   }
   .hamburger span {
-    display: block; width: 22px; height: 2px; background: var(--ink);
+    display: block; width: 22px; height: 2px; background: #1a1714;
     border-radius: 2px; transition: all 0.3s;
   }
   .mobile-menu {
     display: none; flex-direction: column; gap: 0;
-    background: var(--cream); border-top: 1px solid var(--rule);
+    background: #f7f4ef; border-top: 1px solid #e2ddd7;
     padding: 8px 0; position: sticky; top: 57px; z-index: 99;
     box-shadow: 0 4px 12px rgba(26,23,20,0.08);
   }
   .mobile-menu.open { display: flex; }
   .mobile-menu a {
     padding: 14px 24px; font-size: 15px; font-weight: 500;
-    color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--rule);
+    color: #1a1714; text-decoration: none; border-bottom: 1px solid #e2ddd7;
   }
   .mobile-menu a:last-child { border-bottom: none; }
   .mobile-menu a:hover { background: white; }
@@ -367,7 +349,6 @@ ml('account', '2139724');
   .hero .hero-left > *:nth-child(6){animation-delay:.4s}
   .hero .hero-left > *:nth-child(7){animation-delay:.5s}
 
-  /* Scroll reveal for sections */
   .reveal { opacity: 0; transform: translateY(20px); transition: opacity .6s ease, transform .6s ease; }
   .reveal.visible { opacity: 1; transform: translateY(0); }
 
@@ -379,7 +360,6 @@ ml('account', '2139724');
     .nav-cta{display:none;}
     .hero-wrap{padding:48px 24px;}
     .hero{grid-template-columns:1fr;gap:32px;}
-    /* FIX: preview card now visible on mobile, simplified */
     .hero-right .floating-badge{display:none;}
     .preview-card{padding:24px;}
     .stats-bar{padding:28px 24px;gap:40px;}
@@ -418,13 +398,13 @@ ml('account', '2139724');
   <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
     <span></span><span></span><span></span>
   </button>
-  <button class="nav-cta" onclick="document.getElementById('hero-waitlist').querySelector('input').focus()">Accès anticipé →</button>
+  <button class="nav-cta" onclick="scrollToHeroForm()">Accès anticipé →</button>
 </nav>
 <div class="mobile-menu" id="mobile-menu">
   <a href="#comment" onclick="toggleMenu()">Comment ça marche</a>
   <a href="#tarif" onclick="toggleMenu()">Tarif</a>
   <a href="#faq" onclick="toggleMenu()">Questions fréquentes</a>
-  <a href="#hero-waitlist" onclick="toggleMenu()" style="color:var(--gold);font-weight:600;">Accès anticipé →</a>
+  <a href="javascript:void(0)" onclick="toggleMenu();scrollToHeroForm();" style="color:#C4891A;font-weight:600;">Accès anticipé →</a>
 </div>
 
 <!-- HERO -->
@@ -434,7 +414,6 @@ ml('account', '2139724');
       <div class="eyebrow">Gestion budgétaire · Benchmark INSEE 2024</div>
       <h1>Enfin <em>clair</em><br/>sur ton argent</h1>
 
-      <!-- FIX: Concrete proof point in hero -->
       <div class="hero-proof">
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1l2.1 4.3 4.7.7-3.4 3.3.8 4.7L8 11.8 3.8 14l.8-4.7L1.2 6l4.7-.7L8 1z" fill="#4a7c59"/></svg>
         En moyenne, nos utilisateurs identifient 240 €/mois d'économies
@@ -445,13 +424,13 @@ ml('account', '2139724');
         Tu vois exactement où tu te situes — et combien tu pourrais économiser chaque mois.
       </p>
 
-      <!-- FORM HERO -->
+      <!-- FORMULAIRE MAILERLITE — unique sur la page -->
       <div id="hero-waitlist">
         <div id="mlb2-37912338" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-37912338">
           <div class="ml-form-align-center">
             <div class="ml-form-embedWrapper embedForm">
               <div class="ml-form-embedBody ml-form-embedBodyDefault row-form">
-                <form class="ml-block-form" action="#" data-ml-action="https://assets.mailerlite.com/jsonp/2139724/forms/180904644782851751/subscribe" method="post" onsubmit="mlSubmit(event,this);return false;">
+                <form class="ml-block-form" action="https://assets.mailerlite.com/jsonp/2139724/forms/180904644782851751/subscribe" data-ml-action="https://assets.mailerlite.com/jsonp/2139724/forms/180904644782851751/subscribe" method="post">
                   <div class="ml-form-formContent">
                     <div class="ml-form-fieldRow ml-last-item">
                       <div class="ml-field-group ml-field-email ml-validate-email ml-validate-required">
@@ -483,7 +462,7 @@ ml('account', '2139724');
       </div>
     </div>
 
-    <!-- PREVIEW CARD — FIX: now visible on mobile -->
+    <!-- PREVIEW CARD -->
     <div class="hero-right">
       <div class="floating-badge">Aperçu de ton rapport</div>
       <div class="preview-card">
@@ -494,30 +473,30 @@ ml('account', '2139724');
         <div class="preview-item">
           <div class="preview-item-label">
             <span>Logement</span>
-            <span style="color:var(--sage);font-weight:600;">−12 % vs médiane</span>
+            <span style="color:#4a7c59;font-weight:600;">−12 % vs médiane</span>
           </div>
-          <div class="preview-bar-bg"><div class="preview-bar-fill" style="width:62%;background:var(--sage);"></div></div>
+          <div class="preview-bar-bg"><div class="preview-bar-fill" data-width="62" style="width:0%;background:#4a7c59;"></div></div>
         </div>
         <div class="preview-item">
           <div class="preview-item-label">
             <span>Alimentation</span>
-            <span style="color:var(--gold);font-weight:600;">+8 % vs médiane</span>
+            <span style="color:#C4891A;font-weight:600;">+8 % vs médiane</span>
           </div>
-          <div class="preview-bar-bg"><div class="preview-bar-fill" style="width:78%;background:var(--gold);"></div></div>
+          <div class="preview-bar-bg"><div class="preview-bar-fill" data-width="78" style="width:0%;background:#C4891A;"></div></div>
         </div>
         <div class="preview-item">
           <div class="preview-item-label">
             <span>Transport</span>
-            <span style="color:var(--rose);font-weight:600;">+31 % vs médiane</span>
+            <span style="color:#c05a5a;font-weight:600;">+31 % vs médiane</span>
           </div>
-          <div class="preview-bar-bg"><div class="preview-bar-fill" style="width:91%;background:var(--rose);"></div></div>
+          <div class="preview-bar-bg"><div class="preview-bar-fill" data-width="91" style="width:0%;background:#c05a5a;"></div></div>
         </div>
         <div class="preview-item">
           <div class="preview-item-label">
             <span>Loisirs</span>
-            <span style="color:var(--sage);font-weight:600;">−5 % vs médiane</span>
+            <span style="color:#4a7c59;font-weight:600;">−5 % vs médiane</span>
           </div>
-          <div class="preview-bar-bg"><div class="preview-bar-fill" style="width:55%;background:var(--sage);"></div></div>
+          <div class="preview-bar-bg"><div class="preview-bar-fill" data-width="55" style="width:0%;background:#4a7c59;"></div></div>
         </div>
         <div class="preview-footer">
           💡 <strong>Économie potentielle : 243 €/mois</strong><br/>
@@ -610,47 +589,14 @@ ml('account', '2139724');
         <li>Données privées — jamais revendues</li>
         <li>Aucune connexion bancaire requise</li>
       </ul>
-      <div class="price-form">
-        <div class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-37912338">
-          <div class="ml-form-align-center">
-            <div class="ml-form-embedWrapper embedForm">
-              <div class="ml-form-embedBody ml-form-embedBodyDefault row-form">
-                <form class="ml-block-form" action="#" data-ml-action="https://assets.mailerlite.com/jsonp/2139724/forms/180904644782851751/subscribe" method="post" onsubmit="mlSubmit(event,this);return false;">
-                  <div class="ml-form-formContent">
-                    <div class="ml-form-fieldRow ml-last-item">
-                      <div class="ml-field-group ml-field-email ml-validate-email ml-validate-required">
-                        <input aria-label="Adresse email" aria-required="true" type="email" class="form-control" name="fields[email]" placeholder="ton@email.fr" autocomplete="email">
-                      </div>
-                    </div>
-                  </div>
-                  <input type="hidden" name="ml-submit" value="1">
-                  <div class="ml-form-embedSubmit">
-                    <button type="submit" class="primary">Rejoindre la beta →</button>
-                    <button disabled="disabled" style="display:none;" type="button" class="loading">
-                      <div class="ml-form-embedSubmitLoad"></div>
-                      <span class="sr-only">Chargement...</span>
-                    </button>
-                  </div>
-                  <input type="hidden" name="anticsrf" value="true">
-                </form>
-              </div>
-              <div class="ml-form-successBody row-success" style="display:none">
-                <div class="ml-form-successContent">
-                  <p style="font-weight:700;font-size:15px;color:#4a7c59;margin-bottom:6px;">📬 C'est presque bon !</p>
-                  <p style="font-size:13px;color:#4a4540;line-height:1.7;">Vérifie ta boîte mail pour confirmer ton inscription.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <button type="button" class="btn-scroll-cta" onclick="scrollToHeroForm()">Rejoindre la beta →</button>
     </div>
   </div>
 </div>
 
 <hr/>
 
-<!-- TESTIMONIALS — Version adaptée pre-launch -->
+<!-- TESTIMONIALS -->
 <div class="section reveal">
   <div style="text-align:center;">
     <div class="section-label">Ce que nos beta-testeurs en disent</div>
@@ -729,44 +675,13 @@ ml('account', '2139724');
   </div>
 </div>
 
-<!-- BOTTOM CTA — FIX: second CTA at end of page -->
+<!-- BOTTOM CTA -->
 <div class="bottom-cta-section">
   <div class="bottom-cta-inner">
     <div class="bottom-cta-title">Prêt à voir <em>clair</em> ?</div>
     <p class="bottom-cta-sub">Rejoins la beta gratuite et découvre ton score budget en 2 minutes. Données INSEE 2024, plan d'action IA personnalisé.</p>
     <div class="bottom-cta-form">
-      <div class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-37912338">
-        <div class="ml-form-align-center">
-          <div class="ml-form-embedWrapper embedForm">
-            <div class="ml-form-embedBody ml-form-embedBodyDefault row-form">
-              <form class="ml-block-form" action="#" data-ml-action="https://assets.mailerlite.com/jsonp/2139724/forms/180904644782851751/subscribe" method="post" onsubmit="mlSubmit(event,this);return false;">
-                <div class="ml-form-formContent">
-                  <div class="ml-form-fieldRow ml-last-item">
-                    <div class="ml-field-group ml-field-email ml-validate-email ml-validate-required">
-                      <input aria-label="Adresse email" aria-required="true" type="email" class="form-control" name="fields[email]" placeholder="ton@email.fr" autocomplete="email">
-                    </div>
-                  </div>
-                </div>
-                <input type="hidden" name="ml-submit" value="1">
-                <div class="ml-form-embedSubmit">
-                  <button type="submit" class="primary">Accéder à la beta gratuite →</button>
-                  <button disabled="disabled" style="display:none;" type="button" class="loading">
-                    <div class="ml-form-embedSubmitLoad"></div>
-                    <span class="sr-only">Chargement...</span>
-                  </button>
-                </div>
-                <input type="hidden" name="anticsrf" value="true">
-              </form>
-            </div>
-            <div class="ml-form-successBody row-success" style="display:none">
-              <div class="ml-form-successContent">
-                <p style="font-weight:700;font-size:15px;color:#C4E8DA;margin-bottom:6px;">📬 C'est presque bon !</p>
-                <p style="font-size:13px;color:rgba(255,255,255,.6);line-height:1.7;">Vérifie ta boîte mail et clique le lien de confirmation.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <button type="button" class="btn-scroll-cta" onclick="scrollToHeroForm()">Accéder à la beta gratuite →</button>
     </div>
     <p class="bottom-cta-note">Gratuit · Sans connexion bancaire · Données privées</p>
   </div>
@@ -777,43 +692,59 @@ ml('account', '2139724');
 <div class="footer">
   <div class="footer-logo"><em>Lucide</em></div>
   <div class="footer-txt">
-    © 2026 Lucide · <a href="/mentions-legales">Mentions légales</a> · <a href="/confidentialite">Confidentialité</a> · <a href="/cgv">CGV</a>
+    © 2025 Lucide · <a href="/mentions-legales">Mentions légales</a> · <a href="/confidentialite">Confidentialité</a> · <a href="/cgv">CGV</a>
   </div>
 </div>
 
 <script>
+// Menu mobile
 function toggleMenu() {
   document.getElementById('mobile-menu').classList.toggle('open');
 }
 
-// Close mobile menu on resize
-window.addEventListener('resize', () => {
+// Scroll vers le formulaire hero + focus email
+function scrollToHeroForm() {
+  var el = document.getElementById('hero-waitlist');
+  if (!el) return;
+  el.scrollIntoView({ behavior: 'smooth' });
+  setTimeout(function() {
+    var input = el.querySelector('input[type="email"]');
+    if (input) input.focus();
+  }, 600);
+}
+
+// Fermer menu mobile au resize
+window.addEventListener('resize', function() {
   if (window.innerWidth > 900) {
     document.getElementById('mobile-menu').classList.remove('open');
   }
 });
 
-// Scroll reveal observer
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
+// Scroll reveal
+var observer = new IntersectionObserver(function(entries) {
+  entries.forEach(function(entry) {
     if (entry.isIntersecting) {
       entry.target.classList.add('visible');
     }
   });
 }, { threshold: 0.1 });
 
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-// Animate preview bars on load
-window.addEventListener('load', () => {
-  document.querySelectorAll('.preview-bar-fill').forEach(bar => {
-    const width = bar.style.width;
-    bar.style.width = '0%';
-    setTimeout(() => { bar.style.width = width; }, 400);
-  });
+document.querySelectorAll('.reveal').forEach(function(el) {
+  observer.observe(el);
 });
 
-function ml_webform_success_37641666() {
+// Animation barres de progression
+window.addEventListener('load', function() {
+  setTimeout(function() {
+    document.querySelectorAll('.preview-bar-fill').forEach(function(bar) {
+      var w = bar.getAttribute('data-width');
+      if (w) bar.style.width = w + '%';
+    });
+  }, 400);
+});
+
+// MailerLite: redirection vers /merci après inscription
+function ml_webform_success_180904644782851751() {
   window.location.href = '/merci';
 }
 </script>
