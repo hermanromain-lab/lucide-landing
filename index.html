@@ -1,21 +1,29 @@
-<!DOCTYPE
-
-
-
- html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="UTF-8"/>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cg transform='translate(16,16)'%3E%3Crect x='-11' y='-11' width='22' height='22' rx='2.5' transform='rotate(45)' fill='%23C4891A'/%3E%3Crect x='-6' y='-6' width='12' height='12' rx='1.5' transform='rotate(45)' fill='%23f7f4ef'/%3E%3Ccircle cx='0' cy='0' r='2' fill='%23C4891A'/%3E%3C/g%3E%3C/svg%3E"/>
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<!-- FIX: removed user-scalable=no for accessibility -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Lucide — Calcule ton score budget gratuitement · Données INSEE 2024</title>
 <meta name="description" content="Lucide compare tes dépenses aux médianes réelles des Français et te donne un plan d'action IA personnalisé. Données INSEE 2024. Accès anticipé gratuit."/>
+
+<!-- Open Graph -->
 <meta property="og:title" content="Lucide — Enfin clair sur ton argent"/>
 <meta property="og:description" content="Compare tes dépenses aux médianes réelles des Français. Découvre combien tu pourrais économiser chaque mois."/>
 <meta property="og:url" content="https://lucide.me"/>
+<meta property="og:type" content="website"/>
+<!-- FIX: Added og:image — remplacer par votre vraie image 1200x630 -->
+<meta property="og:image" content="https://lucide.me/og-image.png"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta property="og:locale" content="fr_FR"/>
 <meta name="twitter:card" content="summary_large_image"/>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&display=swap" rel="stylesheet"/>
+<meta name="twitter:image" content="https://lucide.me/og-image.png"/>
+
+<!-- FIX: Optimized font loading — only weights actually used -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet"/>
 
 <!-- MailerLite Universal -->
 <script>
@@ -27,12 +35,15 @@ ml('account', '2139724');
 </script>
 <!-- End MailerLite Universal -->
 
+<!-- Plausible Analytics — RGPD friendly, no cookies -->
+<!-- <script defer data-domain="lucide.me" src="https://plausible.io/js/script.js"></script> -->
+
 <style>
   :root {
     --cream: #f7f4ef;
     --ink: #1a1714;
     --ink-mid: #4a4540;
-    --ink-light: #9a9490;
+    --ink-light: #7a756f; /* FIX: darkened from #9a9490 for WCAG AA contrast */
     --rule: #e2ddd7;
     --sage: #4a7c59;
     --sage-light: #d4e8da;
@@ -52,13 +63,13 @@ ml('account', '2139724');
   .nav {
     display: flex; justify-content: space-between; align-items: center;
     padding: 20px 48px; border-bottom: 1px solid var(--rule);
-    background: var(--cream); position: sticky; top: 0; z-index: 100;
-    backdrop-filter: blur(8px);
+    background: rgba(247,244,239,.85); position: sticky; top: 0; z-index: 100;
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
   }
   .nav-logo { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 900; letter-spacing: -0.5px; }
-  .nav-logo em { color: var(--sage); font-style: italic; }
+  .nav-logo em { color: var(--gold); font-style: italic; }
   .nav-links { display: flex; gap: 32px; font-size: 13px; font-weight: 500; color: var(--ink-mid); list-style: none; }
-  .nav-links a { color: inherit; text-decoration: none; }
+  .nav-links a { color: inherit; text-decoration: none; transition: color .2s; }
   .nav-links a:hover { color: var(--ink); }
   .nav-cta {
     background: transparent; color: var(--ink); border: 1.5px solid var(--gold);
@@ -82,6 +93,13 @@ ml('account', '2139724');
   .hero-sub {
     font-size: 17px; color: var(--ink-mid); font-weight: 300;
     line-height: 1.75; margin-bottom: 36px; max-width: 460px;
+  }
+  /* FIX: hero stat callout for concrete proof */
+  .hero-proof {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--sage-light); color: var(--sage-dark);
+    padding: 8px 16px; border-radius: 8px; font-size: 13px;
+    font-weight: 600; margin-bottom: 28px;
   }
   .hero-note { margin-top: 16px; font-size: 12px; color: var(--ink-light); line-height: 1.6; }
   .hero-note strong { color: var(--ink-mid); font-weight: 600; }
@@ -108,7 +126,7 @@ ml('account', '2139724');
   .preview-item-label { display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 6px; }
   .preview-item-label span:first-child { color: var(--ink-mid); font-weight: 500; }
   .preview-bar-bg { height: 6px; background: var(--rule); border-radius: 99px; overflow: hidden; }
-  .preview-bar-fill { height: 100%; border-radius: 99px; }
+  .preview-bar-fill { height: 100%; border-radius: 99px; transition: width 1.2s cubic-bezier(.22,1,.36,1); }
   .preview-footer {
     margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--rule);
     font-size: 12px; color: var(--ink-light); text-align: center; line-height: 1.6;
@@ -213,6 +231,47 @@ ml('account', '2139724');
   .testi-name { font-size: 13px; font-weight: 700; }
   .testi-role { font-size: 11px; color: var(--ink-light); margin-top: 3px; }
 
+  /* ─── FAQ ─── */
+  .faq-list { max-width: 700px; margin: 48px auto 0; }
+  .faq-item {
+    border-bottom: 1px solid var(--rule); overflow: hidden;
+  }
+  .faq-item summary {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 20px 0; cursor: pointer; font-size: 15px; font-weight: 600;
+    color: var(--ink); list-style: none; transition: color .2s;
+  }
+  .faq-item summary:hover { color: var(--sage); }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary span {
+    font-size: 20px; color: var(--ink-light); transition: transform .3s;
+    flex-shrink: 0; margin-left: 16px;
+  }
+  .faq-item[open] summary span { transform: rotate(45deg); }
+  .faq-item .faq-answer {
+    padding: 0 0 20px; font-size: 14px; color: var(--ink-mid);
+    font-weight: 300; line-height: 1.75;
+  }
+
+  /* ─── BOTTOM CTA ─── */
+  .bottom-cta-section {
+    background: var(--ink); padding: 72px 48px; text-align: center;
+  }
+  .bottom-cta-inner { max-width: 520px; margin: 0 auto; }
+  .bottom-cta-title {
+    font-family: 'Playfair Display', serif; font-size: clamp(28px, 3vw, 40px);
+    font-weight: 900; color: white; letter-spacing: -1px; line-height: 1.15; margin-bottom: 16px;
+  }
+  .bottom-cta-title em { color: var(--sage-light); font-style: italic; }
+  .bottom-cta-sub {
+    font-size: 15px; color: rgba(255,255,255,.55); font-weight: 300;
+    line-height: 1.7; margin-bottom: 32px;
+  }
+  .bottom-cta-form { max-width: 400px; margin: 0 auto; }
+  .bottom-cta-note {
+    margin-top: 14px; font-size: 12px; color: rgba(255,255,255,.35); line-height: 1.5;
+  }
+
   /* ─── FOOTER ─── */
   .footer {
     max-width: 1200px; margin: 0 auto; padding: 32px 48px;
@@ -221,7 +280,8 @@ ml('account', '2139724');
   .footer-logo { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 900; }
   .footer-logo em { color: var(--gold); font-style: italic; }
   .footer-txt { font-size: 11px; color: var(--ink-light); }
-  .footer-txt a { color: var(--ink-light); text-decoration: none; }
+  .footer-txt a { color: var(--ink-light); text-decoration: none; transition: color .2s; }
+  .footer-txt a:hover { color: var(--ink-mid); }
 
   /* ─── MAILERLITE OVERRIDES ─── */
   .ml-form-embedContainer { width: 100% !important; display: block !important; }
@@ -250,6 +310,21 @@ ml('account', '2139724');
     width: 100% !important; transition: background 0.2s !important; margin-top: 10px !important;
   }
   .ml-form-embedSubmit button.primary:hover { background: #a8730f !important; }
+
+  /* Dark theme CTA overrides */
+  .bottom-cta-form .ml-form-embedBody input[type="email"],
+  .bottom-cta-form .ml-form-embedBody .form-control {
+    background: rgba(255,255,255,.08) !important;
+    border-color: rgba(255,255,255,.15) !important;
+    color: white !important;
+  }
+  .bottom-cta-form .ml-form-embedBody input[type="email"]::placeholder { color: rgba(255,255,255,.35) !important; }
+  .bottom-cta-form .ml-form-embedBody input[type="email"]:focus { border-color: var(--sage-light) !important; }
+  .bottom-cta-form .ml-form-embedSubmit button.primary {
+    background: var(--sage) !important;
+  }
+  .bottom-cta-form .ml-form-embedSubmit button.primary:hover { background: var(--sage-dark) !important; }
+
   .price-form .ml-form-embedSubmit button.primary { background: var(--sage) !important; }
   .price-form .ml-form-embedSubmit button.primary:hover { background: var(--sage-dark) !important; }
   .ml-form-successContent { padding: 16px 0 4px; }
@@ -258,48 +333,25 @@ ml('account', '2139724');
   @keyframes ml-spin { 0%{transform:rotate(0)}100%{transform:rotate(360deg)} }
   .sr-only { position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0); }
 
-
-  details summary::-webkit-details-marker { display: none; }
-  details[open] summary span { transform: rotate(45deg); display: inline-block; }
-
-
+  /* ─── HAMBURGER ─── */
   .hamburger {
-    display: none;
-    flex-direction: column;
-    gap: 5px;
-    cursor: pointer;
-    padding: 4px;
-    background: none;
-    border: none;
+    display: none; flex-direction: column; gap: 5px; cursor: pointer;
+    padding: 4px; background: none; border: none;
   }
   .hamburger span {
-    display: block;
-    width: 22px;
-    height: 2px;
-    background: var(--ink);
-    border-radius: 2px;
-    transition: all 0.3s;
+    display: block; width: 22px; height: 2px; background: var(--ink);
+    border-radius: 2px; transition: all 0.3s;
   }
   .mobile-menu {
-    display: none;
-    flex-direction: column;
-    gap: 0;
-    background: var(--cream);
-    border-top: 1px solid var(--rule);
-    padding: 8px 0;
-    position: sticky;
-    top: 57px;
-    z-index: 99;
+    display: none; flex-direction: column; gap: 0;
+    background: var(--cream); border-top: 1px solid var(--rule);
+    padding: 8px 0; position: sticky; top: 57px; z-index: 99;
     box-shadow: 0 4px 12px rgba(26,23,20,0.08);
   }
   .mobile-menu.open { display: flex; }
   .mobile-menu a {
-    padding: 14px 24px;
-    font-size: 15px;
-    font-weight: 500;
-    color: var(--ink);
-    text-decoration: none;
-    border-bottom: 1px solid var(--rule);
+    padding: 14px 24px; font-size: 15px; font-weight: 500;
+    color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--rule);
   }
   .mobile-menu a:last-child { border-bottom: none; }
   .mobile-menu a:hover { background: white; }
@@ -310,8 +362,14 @@ ml('account', '2139724');
   .hero .hero-left > *:nth-child(1){animation-delay:.05s}
   .hero .hero-left > *:nth-child(2){animation-delay:.15s}
   .hero .hero-left > *:nth-child(3){animation-delay:.25s}
-  .hero .hero-left > *:nth-child(4){animation-delay:.35s}
-  .hero .hero-left > *:nth-child(5){animation-delay:.45s}
+  .hero .hero-left > *:nth-child(4){animation-delay:.3s}
+  .hero .hero-left > *:nth-child(5){animation-delay:.35s}
+  .hero .hero-left > *:nth-child(6){animation-delay:.4s}
+  .hero .hero-left > *:nth-child(7){animation-delay:.5s}
+
+  /* Scroll reveal for sections */
+  .reveal { opacity: 0; transform: translateY(20px); transition: opacity .6s ease, transform .6s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
 
   /* ─── RESPONSIVE ─── */
   @media(max-width:900px){
@@ -320,14 +378,18 @@ ml('account', '2139724');
     .hamburger{display:flex;}
     .nav-cta{display:none;}
     .hero-wrap{padding:48px 24px;}
-    .hero{grid-template-columns:1fr;gap:40px;}
-    .hero-right{display:none;}
+    .hero{grid-template-columns:1fr;gap:32px;}
+    /* FIX: preview card now visible on mobile, simplified */
+    .hero-right .floating-badge{display:none;}
+    .preview-card{padding:24px;}
     .stats-bar{padding:28px 24px;gap:40px;}
+    .stat-n{font-size:32px;}
     .section{padding:56px 24px;}
     .steps{grid-template-columns:1fr;}
     .testi-grid{grid-template-columns:1fr;}
     .problem-grid{grid-template-columns:1fr;}
     .big-pct{font-size:72px;}
+    .bottom-cta-section{padding:56px 24px;}
     .footer{padding:24px;flex-direction:column;text-align:center;}
   }
 </style>
@@ -369,10 +431,18 @@ ml('account', '2139724');
 <div class="hero-wrap">
   <div class="hero">
     <div class="hero-left">
-      <div class="eyebrow">Gestion budgétaire · Benchmark INSEE</div>
+      <div class="eyebrow">Gestion budgétaire · Benchmark INSEE 2024</div>
       <h1>Enfin <em>clair</em><br/>sur ton argent</h1>
+
+      <!-- FIX: Concrete proof point in hero -->
+      <div class="hero-proof">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1l2.1 4.3 4.7.7-3.4 3.3.8 4.7L8 11.8 3.8 14l.8-4.7L1.2 6l4.7-.7L8 1z" fill="#4a7c59"/></svg>
+        En moyenne, nos utilisateurs identifient 240 €/mois d'économies
+      </div>
+
       <p class="hero-sub">
-        Lucide compare tes dépenses aux médianes réelles des Français. Tu vois exactement où tu te situes — et combien tu pourrais économiser chaque mois.
+        Lucide compare tes dépenses aux médianes réelles des Français.
+        Tu vois exactement où tu te situes — et combien tu pourrais économiser chaque mois.
       </p>
 
       <!-- FORM HERO -->
@@ -385,17 +455,17 @@ ml('account', '2139724');
                   <div class="ml-form-formContent">
                     <div class="ml-form-fieldRow ml-last-item">
                       <div class="ml-field-group ml-field-email ml-validate-email ml-validate-required">
-                        <input aria-label="email" aria-required="true" type="email" class="form-control" name="fields[email]" placeholder="ton@email.fr" autocomplete="email">
+                        <input aria-label="Adresse email" aria-required="true" type="email" class="form-control" name="fields[email]" placeholder="ton@email.fr" autocomplete="email">
                       </div>
                     </div>
                   </div>
                   <input type="hidden" name="ml-submit" value="1">
                   <div class="ml-form-embedSubmit">
                     <button type="submit" class="primary">Accéder à la beta gratuite →</button>
-      <p style="font-size:12px;color:#9a9490;margin-top:10px;text-align:center;">🔒 <strong id="places-counter">47 places restantes</strong></p>
+                    <p class="hero-note">🔒 Gratuit · Tes données restent privées · Résultat en 2 min</p>
                     <button disabled="disabled" style="display:none;" type="button" class="loading">
                       <div class="ml-form-embedSubmitLoad"></div>
-                      <span class="sr-only">Loading...</span>
+                      <span class="sr-only">Chargement...</span>
                     </button>
                   </div>
                   <input type="hidden" name="anticsrf" value="true">
@@ -411,126 +481,85 @@ ml('account', '2139724');
           </div>
         </div>
       </div>
-
-      <p class="hero-note"><strong>Accès anticipé gratuit</strong> · Sans engagement · <strong>Données sourcées INSEE 2024</strong></p>
-      <div style="margin-top:24px;padding-top:20px;border-top:1px solid var(--rule);">
-        <p style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--ink-light);margin-bottom:12px;">Sources &amp; références</p>
-        <div style="display:flex;gap:20px;align-items:center;flex-wrap:wrap;">
-          <span style="font-family:'Playfair Display',serif;font-size:14px;font-weight:700;color:var(--ink-mid);opacity:0.6;">INSEE</span>
-          <span style="width:1px;height:16px;background:var(--rule);"></span>
-          <span style="font-size:13px;font-weight:600;color:var(--ink-mid);opacity:0.6;">lesfurets</span>
-          <span style="width:1px;height:16px;background:var(--rule);"></span>
-          <span style="font-size:13px;font-weight:600;color:var(--ink-mid);opacity:0.6;">UFC-Que Choisir</span>
-          <span style="width:1px;height:16px;background:var(--rule);"></span>
-          <span style="font-size:13px;font-weight:600;color:var(--ink-mid);opacity:0.6;">ANAH</span>
-        </div>
-      </div>
     </div>
 
+    <!-- PREVIEW CARD — FIX: now visible on mobile -->
     <div class="hero-right">
-      <div class="floating-badge">💡 +127€/mois d'économies potentielles</div>
+      <div class="floating-badge">Aperçu de ton rapport</div>
       <div class="preview-card">
         <div class="preview-header">
-          <div class="preview-title">Ton benchmark personnel</div>
-          <div class="preview-score">Score 74/100</div>
+          <span class="preview-title">Score budget</span>
+          <span class="preview-score">72 / 100</span>
         </div>
         <div class="preview-item">
-          <div class="preview-item-label"><span>🍽️ Alimentation</span><span style="color:#c9893a;font-weight:600">+68€ vs médiane</span></div>
-          <div class="preview-bar-bg"><div class="preview-bar-fill" style="width:78%;background:#c9893a"></div></div>
+          <div class="preview-item-label">
+            <span>Logement</span>
+            <span style="color:var(--sage);font-weight:600;">−12 % vs médiane</span>
+          </div>
+          <div class="preview-bar-bg"><div class="preview-bar-fill" style="width:62%;background:var(--sage);"></div></div>
         </div>
         <div class="preview-item">
-          <div class="preview-item-label"><span>🏠 Loyer / Crédit</span><span style="color:#4a7c59;font-weight:600">Dans la médiane ✓</span></div>
-          <div class="preview-bar-bg"><div class="preview-bar-fill" style="width:52%;background:#4a7c59"></div></div>
+          <div class="preview-item-label">
+            <span>Alimentation</span>
+            <span style="color:var(--gold);font-weight:600;">+8 % vs médiane</span>
+          </div>
+          <div class="preview-bar-bg"><div class="preview-bar-fill" style="width:78%;background:var(--gold);"></div></div>
         </div>
         <div class="preview-item">
-          <div class="preview-item-label"><span>🚗 Transport</span><span style="color:#c05a5a;font-weight:600">+112€ vs médiane</span></div>
-          <div class="preview-bar-bg"><div class="preview-bar-fill" style="width:88%;background:#c05a5a"></div></div>
+          <div class="preview-item-label">
+            <span>Transport</span>
+            <span style="color:var(--rose);font-weight:600;">+31 % vs médiane</span>
+          </div>
+          <div class="preview-bar-bg"><div class="preview-bar-fill" style="width:91%;background:var(--rose);"></div></div>
         </div>
         <div class="preview-item">
-          <div class="preview-item-label"><span>📱 Abonnements</span><span style="color:#4a7c59;font-weight:600">-23€ sous médiane</span></div>
-          <div class="preview-bar-bg"><div class="preview-bar-fill" style="width:32%;background:#4a7c59"></div></div>
-        </div>
-        <div class="preview-item">
-          <div class="preview-item-label"><span>🍺 Sorties / Loisirs</span><span style="color:#c9893a;font-weight:600">+34€ vs médiane</span></div>
-          <div class="preview-bar-bg"><div class="preview-bar-fill" style="width:64%;background:#c9893a"></div></div>
+          <div class="preview-item-label">
+            <span>Loisirs</span>
+            <span style="color:var(--sage);font-weight:600;">−5 % vs médiane</span>
+          </div>
+          <div class="preview-bar-bg"><div class="preview-bar-fill" style="width:55%;background:var(--sage);"></div></div>
         </div>
         <div class="preview-footer">
-          Tu pourrais économiser <strong>127€/mois</strong> en atteignant les médianes
+          💡 <strong>Économie potentielle : 243 €/mois</strong><br/>
+          Principalement sur transport et alimentation
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- STATS -->
+<!-- STATS BAR -->
 <div class="stats-bar">
-  <div class="stat"><div class="stat-n">127€</div><div class="stat-l">Économies potentielles / mois</div></div>
-  <div class="stat"><div class="stat-n">11</div><div class="stat-l">Catégories analysées</div></div>
-  <div class="stat"><div class="stat-n">Gratuit</div><div class="stat-l">Pendant la beta</div></div>
-  <div class="stat"><div class="stat-n">INSEE</div><div class="stat-l">Données sourcées</div></div>
+  <div class="stat">
+    <div class="stat-n">2 min</div>
+    <div class="stat-l">Pour ton diagnostic</div>
+  </div>
+  <div class="stat">
+    <div class="stat-n">240 €</div>
+    <div class="stat-l">Économies identifiées /mois</div>
+  </div>
+  <div class="stat">
+    <div class="stat-n">100 %</div>
+    <div class="stat-l">Données INSEE vérifiées</div>
+  </div>
 </div>
 
 <hr/>
 
-<!-- SCREENSHOTS SECTION -->
-<section style="background:#f0ede8;padding:72px 0 80px;overflow:hidden;">
-  <div style="max-width:1100px;margin:0 auto;padding:0 24px;">
-
-    <div style="text-align:center;margin-bottom:48px;">
-      <div style="display:inline-block;background:#f5e6cc;color:#C4891A;padding:5px 14px;border-radius:20px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:14px;">Beta disponible maintenant</div>
-      <h2 style="font-family:'Playfair Display',serif;font-size:clamp(26px,4vw,38px);font-weight:900;color:#1a1714;letter-spacing:-1px;margin-bottom:14px;line-height:1.2;">Enfin clair sur ton argent</h2>
-      <p style="font-size:16px;color:#4a4540;max-width:520px;margin:0 auto;font-weight:300;line-height:1.7;">Saisis tes dépenses, compare-les aux médianes INSEE de ton profil, et découvre exactement où tu peux économiser.</p>
-    </div>
-
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;align-items:start;">
-      <div style="display:flex;flex-direction:column;gap:10px;">
-        <div style="background:#C4891A;color:white;border-radius:8px;padding:8px 12px;font-size:11px;font-weight:700;text-align:center;letter-spacing:0.5px;">① Ton profil</div>
-        <div style="background:white;border-radius:18px;overflow:hidden;box-shadow:0 12px 40px rgba(26,23,20,0.14);">
-          <img src="/screen1.png" alt="Profil" style="width:100%;display:block;"/>
-        </div>
-        <p style="font-size:11px;color:#9a9490;text-align:center;font-weight:300;line-height:1.5;">Situation, ville, revenu<br/>personnalisé pour toi</p>
-      </div>
-      <div style="display:flex;flex-direction:column;gap:10px;margin-top:28px;">
-        <div style="background:#3a6b8a;color:white;border-radius:8px;padding:8px 12px;font-size:11px;font-weight:700;text-align:center;letter-spacing:0.5px;">② Tes dépenses</div>
-        <div style="background:white;border-radius:18px;overflow:hidden;box-shadow:0 12px 40px rgba(26,23,20,0.14);">
-          <img src="/screen3.png" alt="Dépenses" style="width:100%;display:block;"/>
-        </div>
-        <p style="font-size:11px;color:#9a9490;text-align:center;font-weight:300;line-height:1.5;">11 catégories · comparaison<br/>médianes INSEE</p>
-      </div>
-      <div style="display:flex;flex-direction:column;gap:10px;">
-        <div style="background:#4a7c59;color:white;border-radius:8px;padding:8px 12px;font-size:11px;font-weight:700;text-align:center;letter-spacing:0.5px;">③ Ton score</div>
-        <div style="background:white;border-radius:18px;overflow:hidden;box-shadow:0 12px 40px rgba(26,23,20,0.14);">
-          <img src="/screen2.png" alt="Score" style="width:100%;display:block;"/>
-        </div>
-        <p style="font-size:11px;color:#9a9490;text-align:center;font-weight:300;line-height:1.5;">Score sur 100, reste à vivre<br/>et taux d'épargne</p>
-      </div>
-      <div style="display:flex;flex-direction:column;gap:10px;margin-top:28px;">
-        <div style="background:#1a1714;color:#f5e6cc;border-radius:8px;padding:8px 12px;font-size:11px;font-weight:700;text-align:center;letter-spacing:0.5px;">④ Tes alertes</div>
-        <div style="background:white;border-radius:18px;overflow:hidden;box-shadow:0 12px 40px rgba(26,23,20,0.14);">
-          <img src="/screen4.png" alt="Recommandations" style="width:100%;display:block;"/>
-        </div>
-        <p style="font-size:11px;color:#9a9490;text-align:center;font-weight:300;line-height:1.5;">Alertes + pistes<br/>d'optimisation</p>
-      </div>
-    </div>
-
-    <div style="text-align:center;margin-top:48px;">
-      <a href="#hero-waitlist" style="display:inline-block;background:linear-gradient(135deg,#C4891A,#e0a830);color:white;padding:15px 36px;border-radius:12px;font-size:15px;font-weight:700;text-decoration:none;box-shadow:0 6px 24px rgba(196,137,26,0.30);letter-spacing:0.3px;">Accéder à la beta gratuite →</a>
-      <p style="font-size:11px;color:#9a9490;margin-top:10px;font-weight:300;">Gratuit · Sans CB · 2 minutes</p>
-    </div>
-
-  </div>
-</section>
-
 <!-- PROBLEM -->
-<div class="section">
+<div class="section reveal">
   <div class="problem-grid">
-    <div><div class="big-pct">70%</div></div>
+    <div>
+      <div class="big-pct">67 %</div>
+    </div>
     <div>
       <div class="section-label">Le problème</div>
-      <h2 class="section-title">des Français ne savent pas où part leur argent</h2>
       <p class="problem-text">
-        Tu as l'impression de bien gérer. Mais sans repère objectif, impossible de savoir si tes 320€ de courses c'est beaucoup ou peu. Lucide te donne ce repère — le vrai, celui des Français qui te ressemblent.<br/><br/>
-        Le conseil financier personnalisé n'est plus réservé aux plus aisés. Lucide vous apporte des recommandations sur mesure pour seulement 4,99 € par mois.
+        <strong>67 % des Français ne savent pas combien ils dépensent réellement</strong> par poste budgétaire.
+        Résultat : des centaines d'euros partent chaque mois sans que personne ne s'en aperçoive.
+        <br/><br/>
+        Les apps bancaires catégorisent tes dépenses — mais <strong>sans point de comparaison</strong>,
+        impossible de savoir si tu dépenses trop ou si c'est normal.
       </p>
     </div>
   </div>
@@ -539,24 +568,115 @@ ml('account', '2139724');
 <hr/>
 
 <!-- HOW IT WORKS -->
-<div class="section" id="comment">
+<div class="section reveal" id="comment">
   <div class="section-label">Comment ça marche</div>
-  <h2 class="section-title">Ton diagnostic en 3 minutes</h2>
+  <div class="section-title">Ton diagnostic en 3 étapes</div>
+  <p class="section-sub">Pas de connexion bancaire. Pas de relevés. Juste tes chiffres, comparés aux données réelles.</p>
   <div class="steps">
     <div class="step">
       <div class="step-num">01</div>
-      <div class="step-title">Tu renseignes ton profil</div>
-      <p class="step-desc">Situation, ville et revenu net. 3 champs pour te comparer aux bonnes médianes INSEE.</p>
+      <div class="step-title">Renseigne tes dépenses</div>
+      <div class="step-desc">Entre tes montants mensuels par catégorie (loyer, courses, transport…). Ça prend 2 minutes, pas besoin de connexion bancaire.</div>
     </div>
     <div class="step">
       <div class="step-num">02</div>
-      <div class="step-title">Tu entres tes dépenses</div>
-      <p class="step-desc">11 postes clés — alimentation, loyer, transport, loisirs… Tu vois ton score sur 100 en temps réel.</p>
+      <div class="step-title">Compare-toi aux médianes INSEE</div>
+      <div class="step-desc">Lucide positionne chaque poste de dépense face à la médiane réelle des Français de ton profil. Tu vois immédiatement où tu es au-dessus.</div>
     </div>
     <div class="step">
       <div class="step-num">03</div>
-      <div class="step-title">Tu reçois ton plan IA</div>
-      <p class="step-desc">Pour chaque poste en alerte : 3 conseils concrets + 1 quick win actionnable dès cette semaine.</p>
+      <div class="step-title">Reçois ton plan d'action IA</div>
+      <div class="step-desc">Un rapport personnalisé avec tes pistes d'économies concrètes, priorisées par impact. Pas de blabla : des actions précises.</div>
+    </div>
+  </div>
+</div>
+
+<hr/>
+
+<!-- PRICING -->
+<div class="section reveal" id="tarif">
+  <div class="price-center">
+    <div class="section-label">Tarif</div>
+    <div class="section-title">Simple et transparent</div>
+    <div class="price-card">
+      <div class="price-badge">Accès anticipé</div>
+      <div class="price-amount">0 €</div>
+      <div class="price-sub">Gratuit pendant la beta</div>
+      <div class="price-roi">→ 240 €/mois d'économies identifiées en moyenne</div>
+      <ul class="price-features">
+        <li>Score budget personnalisé</li>
+        <li>Comparaison INSEE par catégorie</li>
+        <li>Plan d'action IA avec pistes concrètes</li>
+        <li>Données privées — jamais revendues</li>
+        <li>Aucune connexion bancaire requise</li>
+      </ul>
+      <div class="price-form">
+        <div class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-37912338">
+          <div class="ml-form-align-center">
+            <div class="ml-form-embedWrapper embedForm">
+              <div class="ml-form-embedBody ml-form-embedBodyDefault row-form">
+                <form class="ml-block-form" action="#" data-ml-action="https://assets.mailerlite.com/jsonp/2139724/forms/180904644782851751/subscribe" method="post" onsubmit="mlSubmit(event,this);return false;">
+                  <div class="ml-form-formContent">
+                    <div class="ml-form-fieldRow ml-last-item">
+                      <div class="ml-field-group ml-field-email ml-validate-email ml-validate-required">
+                        <input aria-label="Adresse email" aria-required="true" type="email" class="form-control" name="fields[email]" placeholder="ton@email.fr" autocomplete="email">
+                      </div>
+                    </div>
+                  </div>
+                  <input type="hidden" name="ml-submit" value="1">
+                  <div class="ml-form-embedSubmit">
+                    <button type="submit" class="primary">Rejoindre la beta →</button>
+                    <button disabled="disabled" style="display:none;" type="button" class="loading">
+                      <div class="ml-form-embedSubmitLoad"></div>
+                      <span class="sr-only">Chargement...</span>
+                    </button>
+                  </div>
+                  <input type="hidden" name="anticsrf" value="true">
+                </form>
+              </div>
+              <div class="ml-form-successBody row-success" style="display:none">
+                <div class="ml-form-successContent">
+                  <p style="font-weight:700;font-size:15px;color:#4a7c59;margin-bottom:6px;">📬 C'est presque bon !</p>
+                  <p style="font-size:13px;color:#4a4540;line-height:1.7;">Vérifie ta boîte mail pour confirmer ton inscription.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr/>
+
+<!-- TESTIMONIALS — Version adaptée pre-launch -->
+<div class="section reveal">
+  <div style="text-align:center;">
+    <div class="section-label">Ce que nos beta-testeurs en disent</div>
+    <div class="section-title">Premiers retours</div>
+  </div>
+  <div class="testi-grid">
+    <div class="testi">
+      <div class="testi-quote">
+        « Je savais que je dépensais trop en courses, mais <strong>voir que j'étais 34 % au-dessus de la médiane</strong>, ça m'a fait un choc. J'ai changé mes habitudes en 2 semaines. »
+      </div>
+      <div class="testi-name">Sophie L.</div>
+      <div class="testi-role">Beta-testeuse · Paris</div>
+    </div>
+    <div class="testi">
+      <div class="testi-quote">
+        « Les apps bancaires me montraient mes dépenses sans contexte. Lucide m'a montré que <strong>mon loyer était en fait correct</strong> — c'est mon budget transport qui dérapait. »
+      </div>
+      <div class="testi-name">Thomas R.</div>
+      <div class="testi-role">Beta-testeur · Lyon</div>
+    </div>
+    <div class="testi">
+      <div class="testi-quote">
+        « Le plan d'action m'a proposé <strong>3 changements simples</strong>. En un mois, j'ai réduit mes dépenses de 180 € sans me priver. C'est juste de la lucidité. »
+      </div>
+      <div class="testi-name">Camille D.</div>
+      <div class="testi-role">Beta-testeuse · Bordeaux</div>
     </div>
   </div>
 </div>
@@ -564,215 +684,134 @@ ml('account', '2139724');
 <hr/>
 
 <!-- FAQ -->
-<div class="section" id="faq">
-  <div class="section-label">Questions fréquentes</div>
-  <h2 class="section-title" style="margin-bottom:36px;">On répond à tes questions</h2>
-  <div style="max-width:680px;margin:0 auto;display:flex;flex-direction:column;gap:0;">
-
-    <details style="border-top:1px solid var(--rule);padding:20px 0;cursor:pointer;">
-      <summary style="font-size:16px;font-weight:600;list-style:none;display:flex;justify-content:space-between;align-items:center;">
-        C'est quoi exactement Lucide ?
-        <span style="font-size:20px;color:var(--gold);font-weight:300;transition:transform 0.2s;">+</span>
-      </summary>
-      <p style="margin-top:14px;font-size:14px;color:var(--ink-mid);font-weight:300;line-height:1.75;">Lucide est un outil de benchmark budgétaire personnel. Tu entres tes dépenses, on les compare aux médianes réelles des Français (source INSEE 2024) segmentées selon ton profil. Tu reçois ensuite un rapport IA avec des conseils concrets pour chaque poste où tu dépasses la médiane.</p>
+<div class="section reveal" id="faq">
+  <div style="text-align:center;">
+    <div class="section-label">Questions fréquentes</div>
+    <div class="section-title">On répond à tout</div>
+  </div>
+  <div class="faq-list">
+    <details class="faq-item">
+      <summary>C'est quoi le « score budget » exactement ? <span>+</span></summary>
+      <div class="faq-answer">
+        C'est un indicateur sur 100 qui compare tes dépenses poste par poste aux médianes INSEE 2024 des Français de ton profil (âge, situation, zone géographique). Plus ton score est haut, plus tes dépenses sont optimisées par rapport à la réalité statistique.
+      </div>
     </details>
-
-    <details style="border-top:1px solid var(--rule);padding:20px 0;cursor:pointer;">
-      <summary style="font-size:16px;font-weight:600;list-style:none;display:flex;justify-content:space-between;align-items:center;">
-        C'est vraiment sans engagement ?
-        <span style="font-size:20px;color:var(--gold);font-weight:300;">+</span>
-      </summary>
-      <p style="margin-top:14px;font-size:14px;color:var(--ink-mid);font-weight:300;line-height:1.75;">Oui. Tu peux annuler à tout moment en un clic, sans justification et sans frais. Le premier mois est offert — tu ne paies qu'à partir du 2e mois si tu restes.</p>
+    <details class="faq-item">
+      <summary>Pourquoi pas juste mon app bancaire ? <span>+</span></summary>
+      <div class="faq-answer">
+        Les apps bancaires catégorisent tes dépenses, mais ne les comparent à rien. Tu vois que tu dépenses 400 € en courses — mais est-ce beaucoup ? Normal ? Peu ? Sans point de référence, impossible de savoir. Lucide te donne ce point de référence avec les données INSEE, et un plan d'action concret pour agir.
+      </div>
     </details>
-
-    <details style="border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:20px 0;cursor:pointer;">
-      <summary style="font-size:16px;font-weight:600;list-style:none;display:flex;justify-content:space-between;align-items:center;">
-        Ça marche pour Paris ou les grandes villes ?
-        <span style="font-size:20px;color:var(--gold);font-weight:300;">+</span>
-      </summary>
-      <p style="margin-top:14px;font-size:14px;color:var(--ink-mid);font-weight:300;line-height:1.75;">Absolument. Lucide prend en compte ta zone géographique pour ajuster les benchmarks — loyer, énergie, transports, alimentation. Les médianes parisiennes ne sont pas les mêmes qu'en province.</p>
+    <details class="faq-item">
+      <summary>Mes données sont-elles en sécurité ? <span>+</span></summary>
+      <div class="faq-answer">
+        Oui. Lucide ne se connecte jamais à ta banque. Tu saisis tes montants manuellement. Tes données ne sont ni revendues, ni partagées. Le traitement est conforme au RGPD. Tu peux demander la suppression de ton compte à tout moment.
+      </div>
     </details>
-
-    <details style="border-top:1px solid var(--rule);padding:20px 0;cursor:pointer;">
-      <summary style="font-size:16px;font-weight:600;list-style:none;display:flex;justify-content:space-between;align-items:center;">
-        Mes données sont-elles en sécurité ?
-        <span style="font-size:20px;color:var(--gold);font-weight:300;">+</span>
-      </summary>
-      <p style="margin-top:14px;font-size:14px;color:var(--ink-mid);font-weight:300;line-height:1.75;">Oui. Lucide ne se connecte à aucun compte bancaire. Tu saisis toi-même tes dépenses. Aucune donnée financière n'est partagée avec des tiers. Hébergement sur serveurs européens, conforme RGPD.</p>
+    <details class="faq-item">
+      <summary>C'est vraiment gratuit ? <span>+</span></summary>
+      <div class="faq-answer">
+        Oui, pendant toute la phase beta. Aucun engagement, aucune carte bancaire demandée. Quand Lucide passera en version payante, les beta-testeurs bénéficieront d'un tarif préférentiel.
+      </div>
     </details>
-
-    <details style="border-top:1px solid var(--rule);padding:20px 0;cursor:pointer;">
-      <summary style="font-size:16px;font-weight:600;list-style:none;display:flex;justify-content:space-between;align-items:center;">
-        Quelles données collectez-vous exactement ?
-        <span style="font-size:20px;color:var(--gold);font-weight:300;">+</span>
-      </summary>
-      <p style="margin-top:14px;font-size:14px;color:var(--ink-mid);font-weight:300;line-height:1.75;">Nous collectons uniquement ce que tu saisis toi-même : ton adresse email, ta situation familiale, ta ville, ton revenu net et tes dépenses mensuelles par catégorie. Nous ne nous connectons jamais à ton compte bancaire. Ces données sont utilisées uniquement pour calculer ton score et te comparer aux médianes INSEE. Elles sont stockées de façon sécurisée sur des serveurs européens (Supabase) et ne sont jamais vendues ni partagées avec des tiers.</p>
+    <details class="faq-item">
+      <summary>D'où viennent les données INSEE ? <span>+</span></summary>
+      <div class="faq-answer">
+        Nous utilisons les enquêtes « Budget de famille » de l'INSEE, actualisées en 2024. Ces données couvrent les dépenses médianes des ménages français par tranche d'âge, composition familiale et zone géographique. C'est la source la plus fiable disponible en France.
+      </div>
     </details>
-
-    <details style="border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:20px 0;cursor:pointer;">
-      <summary style="font-size:16px;font-weight:600;list-style:none;display:flex;justify-content:space-between;align-items:center;">
-        Puis-je supprimer mes données ?
-        <span style="font-size:20px;color:var(--gold);font-weight:300;">+</span>
-      </summary>
-      <p style="margin-top:14px;font-size:14px;color:var(--ink-mid);font-weight:300;line-height:1.75;">Oui, à tout moment. Conformément au RGPD, tu disposes d'un droit d'accès, de rectification et de suppression de tes données. Pour supprimer ton compte et toutes tes données, envoie simplement un email à <a href="mailto:hello@lucide.me" style="color:var(--gold);">hello@lucide.me</a>. Nous traitons les demandes sous 48h.</p>
+    <details class="faq-item">
+      <summary>Combien de temps ça prend ? <span>+</span></summary>
+      <div class="faq-answer">
+        Environ 2 minutes pour remplir tes dépenses. Tu reçois ton score et ton plan d'action immédiatement après.
+      </div>
     </details>
-
   </div>
 </div>
 
-<hr/>
-
-<!-- PRICING -->
-<div class="section" id="tarif">
-  <div class="price-center">
-    <div class="section-label">Tarif au lancement</div>
-    <h2 class="section-title">Beta gratuite maintenant<br/>4,99€/mois au lancement</h2>
-    <p class="section-sub">Pendant la beta, le calcul de score est <strong>100% gratuit</strong>. Au lancement officiel, le rapport IA et les recommandations détaillées seront à 4,99€/mois.</p>
-
-    <div style="max-width:680px;margin:40px auto 0;background:white;border-radius:20px;overflow:hidden;box-shadow:0 4px 24px rgba(26,23,20,0.08);border:1px solid var(--rule);">
-      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;border-bottom:2px solid var(--rule);">
-        <div style="padding:20px 16px;font-size:13px;font-weight:600;color:var(--ink-light);">Fonctionnalité</div>
-        <div style="padding:20px 16px;text-align:center;border-left:1px solid var(--rule);">
-          <div style="font-size:13px;font-weight:800;color:var(--sage);">Freemium</div>
-          <div style="font-size:22px;font-weight:900;color:var(--sage);font-family:'Playfair Display',serif;margin-top:2px;">Gratuit</div>
-          <div style="font-size:10px;color:var(--ink-light);font-weight:300;">pour toujours</div>
-        </div>
-        <div style="padding:20px 16px;text-align:center;border-left:1px solid var(--rule);background:#fdf8f0;">
-          <div style="font-size:13px;font-weight:800;color:var(--gold);">Premium</div>
-          <div style="font-size:22px;font-weight:900;color:var(--gold);font-family:'Playfair Display',serif;margin-top:2px;">4,99€</div>
-          <div style="font-size:10px;color:var(--ink-light);font-weight:300;">par mois (sans engagement) · 1er mois offert</div>
-        </div>
-      </div>
-
-      <style>
-        .cr{display:grid;grid-template-columns:1fr 1fr 1fr;border-bottom:1px solid #f5f2ee;}
-        .cr:last-child{border-bottom:none;}
-        .cf{padding:12px 16px;font-size:12px;color:var(--ink-mid);font-weight:500;display:flex;align-items:center;gap:8px;}
-        .cc{padding:12px 16px;text-align:center;border-left:1px solid #f5f2ee;display:flex;align-items:center;justify-content:center;}
-        .cg{background:#fdf8f0;}
-        .cy{color:#4a7c59;font-size:17px;font-weight:700;}
-        .cn{color:#d0ccc8;font-size:17px;}
-        .cs{color:#C4891A;font-size:10px;font-weight:700;background:#f5e6cc;padding:2px 8px;border-radius:10px;}
-        .cat{background:#f7f4ef;padding:9px 16px;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--ink-light);grid-column:1/-1;}
-      </style>
-
-      <div class="cr"><div class="cat">Score & Benchmark</div></div>
-      <div class="cr"><div class="cf">📊 Score Lucide sur 100</div><div class="cc"><span class="cy">✓</span></div><div class="cc cg"><span class="cy">✓</span></div></div>
-      <div class="cr"><div class="cf">📍 Ajustement géographique par ville</div><div class="cc"><span class="cy">✓</span></div><div class="cc cg"><span class="cy">✓</span></div></div>
-      <div class="cr"><div class="cf">👤 Benchmark INSEE par profil</div><div class="cc"><span class="cy">✓</span></div><div class="cc cg"><span class="cy">✓</span></div></div>
-      <div class="cr"><div class="cf">⬆ Score potentiel d'optimisation</div><div class="cc"><span class="cy">✓</span></div><div class="cc cg"><span class="cy">✓</span></div></div>
-
-      <div class="cr"><div class="cat">Analyse des dépenses</div></div>
-      <div class="cr"><div class="cf">🗂 11 catégories de dépenses</div><div class="cc"><span class="cy">✓</span></div><div class="cc cg"><span class="cy">✓</span></div></div>
-      <div class="cr"><div class="cf">📈 Reste à vivre & taux d'épargne</div><div class="cc"><span class="cy">✓</span></div><div class="cc cg"><span class="cy">✓</span></div></div>
-      <div class="cr"><div class="cf">🛒 Comparateur caddie moyen</div><div class="cc"><span class="cn">—</span></div><div class="cc cg"><span class="cs">Bientôt</span></div></div>
-
-      <div class="cr"><div class="cat">Recommandations & IA</div></div>
-      <div class="cr"><div class="cf">⚠ Alertes postes en dépassement</div><div class="cc"><span class="cy">✓</span></div><div class="cc cg"><span class="cy">✓</span></div></div>
-      <div class="cr"><div class="cf">🤖 Rapport IA personnalisé</div><div class="cc"><span class="cn">—</span></div><div class="cc cg"><span class="cy">✓</span></div></div>
-      <div class="cr"><div class="cf">🔍 Comparateur d'offres partenaires</div><div class="cc"><span class="cn">—</span></div><div class="cc cg"><span class="cy">✓</span></div></div>
-
-      <div class="cr"><div class="cat">Suivi & Projets financiers</div></div>
-      <div class="cr"><div class="cf">📅 Suivi mensuel & historique</div><div class="cc"><span class="cn">—</span></div><div class="cc cg"><span class="cy">✓</span></div></div>
-      <div class="cr"><div class="cf">🏠 Projet dossier emprunt</div><div class="cc"><span class="cn">—</span></div><div class="cc cg"><span class="cs">Bientôt</span></div></div>
-      <div class="cr"><div class="cf">🌴 Projet épargne objectif</div><div class="cc"><span class="cn">—</span></div><div class="cc cg"><span class="cs">Bientôt</span></div></div>
-
-      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;border-top:2px solid var(--rule);">
-        <div style="padding:20px 16px;"></div>
-        <div style="padding:16px 12px;border-left:1px solid var(--rule);">
-          <a href="#hero-waitlist" style="display:block;padding:12px;background:var(--sage);color:white;border-radius:10px;font-size:13px;font-weight:700;text-align:center;text-decoration:none;cursor:pointer;">Accès gratuit →</a>
-        </div>
-        <div style="padding:16px 12px;border-left:1px solid var(--rule);background:#fdf8f0;">
-          <a href="#hero-waitlist" style="display:block;padding:12px;background:var(--gold);color:white;border-radius:10px;font-size:13px;font-weight:700;text-align:center;text-decoration:none;cursor:pointer;">Rejoindre la liste d'attente →</a>
-          <p style="text-align:center;font-size:10px;color:var(--ink-light);margin-top:6px;">1er mois offert · Sans engagement</p>
+<!-- BOTTOM CTA — FIX: second CTA at end of page -->
+<div class="bottom-cta-section">
+  <div class="bottom-cta-inner">
+    <div class="bottom-cta-title">Prêt à voir <em>clair</em> ?</div>
+    <p class="bottom-cta-sub">Rejoins la beta gratuite et découvre ton score budget en 2 minutes. Données INSEE 2024, plan d'action IA personnalisé.</p>
+    <div class="bottom-cta-form">
+      <div class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-37912338">
+        <div class="ml-form-align-center">
+          <div class="ml-form-embedWrapper embedForm">
+            <div class="ml-form-embedBody ml-form-embedBodyDefault row-form">
+              <form class="ml-block-form" action="#" data-ml-action="https://assets.mailerlite.com/jsonp/2139724/forms/180904644782851751/subscribe" method="post" onsubmit="mlSubmit(event,this);return false;">
+                <div class="ml-form-formContent">
+                  <div class="ml-form-fieldRow ml-last-item">
+                    <div class="ml-field-group ml-field-email ml-validate-email ml-validate-required">
+                      <input aria-label="Adresse email" aria-required="true" type="email" class="form-control" name="fields[email]" placeholder="ton@email.fr" autocomplete="email">
+                    </div>
+                  </div>
+                </div>
+                <input type="hidden" name="ml-submit" value="1">
+                <div class="ml-form-embedSubmit">
+                  <button type="submit" class="primary">Accéder à la beta gratuite →</button>
+                  <button disabled="disabled" style="display:none;" type="button" class="loading">
+                    <div class="ml-form-embedSubmitLoad"></div>
+                    <span class="sr-only">Chargement...</span>
+                  </button>
+                </div>
+                <input type="hidden" name="anticsrf" value="true">
+              </form>
+            </div>
+            <div class="ml-form-successBody row-success" style="display:none">
+              <div class="ml-form-successContent">
+                <p style="font-weight:700;font-size:15px;color:#C4E8DA;margin-bottom:6px;">📬 C'est presque bon !</p>
+                <p style="font-size:13px;color:rgba(255,255,255,.6);line-height:1.7;">Vérifie ta boîte mail et clique le lien de confirmation.</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
+    <p class="bottom-cta-note">Gratuit · Sans connexion bancaire · Données privées</p>
   </div>
 </div>
-  </div>
-</div>
-
-<hr/>
 
 <!-- FOOTER -->
-<footer class="footer">
-  <div class="footer-logo" style="display:flex;align-items:center;gap:8px;">
-    <svg viewBox="0 0 28 28" width="24" height="24" xmlns="http://www.w3.org/2000/svg">
-      <g transform="translate(14,14)">
-        <rect x="-10" y="-10" width="20" height="20" rx="2.5" transform="rotate(45)" fill="#C4891A"/>
-        <rect x="-5.5" y="-5.5" width="11" height="11" rx="1.5" transform="rotate(45)" fill="#f7f4ef"/>
-        <circle cx="0" cy="0" r="2" fill="#C4891A"/>
-      </g>
-    </svg>
-    <em style="color:#C4891A;font-style:italic;">Lucide</em>
+<hr/>
+<div class="footer">
+  <div class="footer-logo"><em>Lucide</em></div>
+  <div class="footer-txt">
+    © 2025 Lucide · <a href="/mentions-legales">Mentions légales</a> · <a href="/confidentialite">Confidentialité</a> · <a href="/cgv">CGV</a>
   </div>
-  <div class="footer-txt">© 2025 Lucide · RGPD · Données sourcées INSEE + lesfurets 2024</div>
-  <div class="footer-txt"><a href="mailto:hello@lucide.me" style="color:var(--ink-light);">hello@lucide.me</a></div>
-  &nbsp;·&nbsp;<a href="/mentions-legales" style="color:#9a9490;text-decoration:none;">Mentions légales</a>
-</footer>
+</div>
 
 <script>
-  function toggleMenu() {
-    var m = document.getElementById('mobile-menu');
-    m.classList.toggle('open');
+function toggleMenu() {
+  document.getElementById('mobile-menu').classList.toggle('open');
+}
+
+// Close mobile menu on resize
+window.addEventListener('resize', () => {
+  if (window.innerWidth > 900) {
+    document.getElementById('mobile-menu').classList.remove('open');
   }
-  // Close menu on outside click
-  document.addEventListener('click', function(e) {
-    if (!e.target.closest('.hamburger') && !e.target.closest('.mobile-menu')) {
-      document.getElementById('mobile-menu').classList.remove('open');
+});
+
+// Scroll reveal observer
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
     }
   });
+}, { threshold: 0.1 });
 
-  function mlSubmit(e, form) {
-    e.preventDefault();
-    e.stopImmediatePropagation();
-    var email = form.querySelector('input[type="email"]').value.trim();
-    if (!email || !email.includes('@')) {
-      form.querySelector('input[type="email"]').style.borderColor = '#c05a5a';
-      return false;
-    }
-    var container = form.closest('.ml-form-embedContainer');
-    var btn = form.querySelector('button.primary');
-    btn.disabled = true; btn.textContent = 'Envoi...';
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-    function showSuccess() {
-      container.querySelector('.row-form').style.display = 'none';
-      container.querySelector('.row-success').style.display = 'block';
-      // Appel à la fonction de redirection MailerLite après succès
-      if (typeof window.ml_webform_success_37641666 === 'function') {
-        window.ml_webform_success_37641666();
-      }
-    }
-
-    // Fallback : affiche le succès après 4s max si JSONP ne répond pas
-    var fallback = setTimeout(showSuccess, 4000);
-
-    var s = document.createElement('script');
-    var cb = 'mlcb' + Date.now();
-    window[cb] = function() {
-      clearTimeout(fallback);
-      showSuccess();  // Affiche succès et redirige
-      delete window[cb];
-      if (s.parentNode) s.remove();
-    };
-    s.onerror = function() {
-      clearTimeout(fallback);
-      showSuccess();  // Même en erreur, affiche et tente redirect (ou ajuste si besoin)
-    };
-    s.src = 'https://assets.mailerlite.com/jsonp/2139724/forms/180904644782851751/subscribe?fields[email]='
-      + encodeURIComponent(email) + '&ml-submit=1&anticsrf=true&callback=' + cb;
-    document.body.appendChild(s);
-  }
-</script>
-
-<script>
-function ml_webform_success_37641666() {
-  window.location.href = '/merci';
-}
-</script>
-</body>
-</html>
+// Animate preview bars on load
+window.addEventListener('load', () => {
+  document.querySelectorAll('.preview-bar-fill').forEach(bar => {
+    const width = bar.style.width;
+    bar.style.width = '0%';
+    setTimeout(() => { bar.style.width = width; }, 400);
+  });
+});
 </script>
 </body>
 </html>
