@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Lucide — Calcule ton score budget gratuitement · Données INSEE 2024</title>
-<meta name="description" content="Lucide compare tes dépenses aux médianes réelles des Français et te donne un plan d'action IA personnalisé. Données INSEE 2024. Accès anticipé gratuit."/>
+<meta name="description" content="Lucide compare tes dépenses aux médianes réelles des Français et te donne un rapport IA personnalisé avec plan d'action. Données INSEE 2024. Accès beta gratuit."/>
 
 <!-- Open Graph -->
 <meta property="og:title" content="Lucide — Enfin clair sur ton argent"/>
@@ -30,10 +30,8 @@ n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
 (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
 ml('account', '2139724');
 </script>
-<!-- End MailerLite Universal -->
 
-<!-- Plausible Analytics — décommenter après création du compte -->
-<!-- Privacy-friendly analytics by Plausible -->
+<!-- Plausible Analytics -->
 <script async src="https://plausible.io/js/pa-uKFGL74D3f7XH5-EyEM5B.js"></script>
 <script>
   window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
@@ -188,6 +186,77 @@ ml('account', '2139724');
   }
   .step-title { font-size: 15px; font-weight: 700; margin-bottom: 10px; }
   .step-desc { font-size: 13px; color: var(--ink-mid); font-weight: 300; line-height: 1.7; }
+
+  /* ─── RAPPORT IA SECTION ─── */
+  .rapport-section {
+    background: var(--ink); padding: 80px 48px;
+  }
+  .rapport-inner {
+    max-width: 1200px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center;
+  }
+  .rapport-label {
+    font-size: 10px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 2.5px; color: var(--gold); margin-bottom: 16px;
+  }
+  .rapport-title {
+    font-family: 'Playfair Display', serif; font-size: clamp(28px, 3vw, 42px);
+    font-weight: 900; color: white; letter-spacing: -1.5px; line-height: 1.1; margin-bottom: 20px;
+  }
+  .rapport-title em { color: var(--gold); font-style: italic; }
+  .rapport-sub {
+    font-size: 15px; color: rgba(255,255,255,.55); font-weight: 300; line-height: 1.75; margin-bottom: 32px;
+  }
+  .rapport-features { display: flex; flex-direction: column; gap: 12px; }
+  .rapport-feature {
+    display: flex; align-items: center; gap: 12px;
+    font-size: 14px; color: rgba(255,255,255,.75); font-weight: 400;
+  }
+  .rapport-feature-icon {
+    width: 32px; height: 32px; border-radius: 8px;
+    background: rgba(196,137,26,0.15); border: 1px solid rgba(196,137,26,0.3);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 15px; flex-shrink: 0;
+  }
+  .rapport-card {
+    background: #221E1A; border-radius: 20px; border: 1px solid #2A2520;
+    overflow: hidden; box-shadow: 0 24px 64px rgba(0,0,0,0.4);
+  }
+  .rapport-card-top {
+    height: 3px; background: linear-gradient(90deg, #C4891A, #E8B040, #C4891A);
+  }
+  .rapport-card-body { padding: 24px; }
+  .rapport-card-header {
+    display: flex; align-items: center; gap: 12px; margin-bottom: 20px;
+    padding-bottom: 16px; border-bottom: 1px solid #2A2520;
+  }
+  .rapport-card-score {
+    font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 900;
+    color: #C4891A; line-height: 1;
+  }
+  .rapport-card-profil { font-size: 13px; color: rgba(255,255,255,.5); margin-top: 2px; }
+  .rapport-card-type { font-size: 16px; font-weight: 700; color: white; }
+  .rapport-badge {
+    display: inline-flex; align-items: center; gap: 5px;
+    background: rgba(196,137,26,0.12); border: 1px solid rgba(196,137,26,0.3);
+    border-radius: 20px; padding: 4px 10px; font-size: 11px; font-weight: 700; color: #C4891A;
+    margin-right: 6px; margin-bottom: 6px;
+  }
+  .rapport-card-item {
+    background: #1A1714; border-radius: 10px; padding: 12px 14px;
+    margin-bottom: 8px; border-left: 3px solid #C4891A;
+  }
+  .rapport-card-item-title { font-size: 12px; font-weight: 600; color: white; margin-bottom: 2px; }
+  .rapport-card-item-desc { font-size: 11px; color: rgba(255,255,255,.4); font-weight: 300; }
+  .rapport-card-economies {
+    background: rgba(40,120,72,0.15); border: 1px solid rgba(40,120,72,0.3);
+    border-radius: 10px; padding: 12px 16px; margin-top: 12px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .rapport-card-economies-amount {
+    font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 900; color: #6DC090;
+  }
+  .rapport-card-economies-label { font-size: 10px; color: #4A9060; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
 
   /* ─── PRICING ─── */
   .price-center { max-width: 500px; margin: 0 auto; text-align: center; }
@@ -375,6 +444,8 @@ ml('account', '2139724');
     .big-pct{font-size:72px;}
     .bottom-cta-section{padding:56px 24px;}
     .footer{padding:24px;flex-direction:column;text-align:center;}
+    .rapport-section{padding:56px 24px;}
+    .rapport-inner{grid-template-columns:1fr;gap:32px;}
   }
 </style>
 </head>
@@ -396,8 +467,9 @@ ml('account', '2139724');
   </div>
   <ul class="nav-links">
     <li><a href="#comment">Comment ça marche</a></li>
+    <li><a href="#rapport-ia">Rapport IA</a></li>
     <li><a href="#tarif">Tarif</a></li>
-    <li><a href="#faq">Questions fréquentes</a></li>
+    <li><a href="#faq">FAQ</a></li>
   </ul>
   <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
     <span></span><span></span><span></span>
@@ -406,8 +478,9 @@ ml('account', '2139724');
 </nav>
 <div class="mobile-menu" id="mobile-menu">
   <a href="#comment" onclick="toggleMenu()">Comment ça marche</a>
+  <a href="#rapport-ia" onclick="toggleMenu()">Rapport IA</a>
   <a href="#tarif" onclick="toggleMenu()">Tarif</a>
-  <a href="#faq" onclick="toggleMenu()">Questions fréquentes</a>
+  <a href="#faq" onclick="toggleMenu()">FAQ</a>
   <a href="#hero-waitlist" onclick="toggleMenu()" style="color:var(--gold);font-weight:600;">Accès anticipé →</a>
 </div>
 
@@ -425,10 +498,9 @@ ml('account', '2139724');
 
       <p class="hero-sub">
         Lucide compare tes dépenses aux médianes réelles des Français.
-        Tu vois exactement où tu te situes — et combien tu pourrais économiser chaque mois.
+        Tu vois exactement où tu te situes — et reçois un rapport IA personnalisé avec ton plan d'action.
       </p>
 
-      <!-- FORMULAIRE MAILERLITE — unique sur la page, JS Vercel -->
       <div id="hero-waitlist">
         <div id="mlb2-37912338" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-37912338">
           <div class="ml-form-align-center">
@@ -567,8 +639,77 @@ ml('account', '2139724');
     </div>
     <div class="step">
       <div class="step-num">03</div>
-      <div class="step-title">Reçois ton plan d'action IA</div>
-      <div class="step-desc">Un rapport personnalisé avec tes pistes d'économies concrètes, priorisées par impact. Pas de blabla : des actions précises.</div>
+      <div class="step-title">Reçois ton rapport IA complet</div>
+      <div class="step-desc">Profil financier, badges, projection 12 mois, plan d'action priorisé et radar chart vs médiane. Un vrai coach budgétaire dans ta poche.</div>
+    </div>
+  </div>
+</div>
+
+<hr/>
+
+<!-- RAPPORT IA SECTION -->
+<div class="rapport-section reveal" id="rapport-ia">
+  <div class="rapport-inner">
+    <div>
+      <div class="rapport-label">Rapport IA personnalisé</div>
+      <div class="rapport-title">Bien plus qu'un score —<br/>un vrai <em>coach</em> financier</div>
+      <p class="rapport-sub">Chaque mois, Lucide génère un rapport complet et personnalisé qui analyse ton budget en profondeur et t'indique exactement quoi faire.</p>
+      <div class="rapport-features">
+        <div class="rapport-feature">
+          <div class="rapport-feature-icon">🏆</div>
+          <div><strong style="color:white;">Profil financier</strong> — Épargnant Discipliné, Hédoniste Assumé, Équilibré Prudent…</div>
+        </div>
+        <div class="rapport-feature">
+          <div class="rapport-feature-icon">📊</div>
+          <div><strong style="color:white;">Radar chart</strong> — visualise toutes tes catégories vs la médiane INSEE d'un coup d'œil</div>
+        </div>
+        <div class="rapport-feature">
+          <div class="rapport-feature-icon">⚡</div>
+          <div><strong style="color:white;">Plan d'action</strong> — 3 actions concrètes priorisées par impact et difficulté</div>
+        </div>
+        <div class="rapport-feature">
+          <div class="rapport-feature-icon">📈</div>
+          <div><strong style="color:white;">Projection 12 mois</strong> — ce que représentent tes économies potentielles sur un an</div>
+        </div>
+        <div class="rapport-feature">
+          <div class="rapport-feature-icon">🗂️</div>
+          <div><strong style="color:white;">Historique</strong> — consulte tes rapports des mois précédents à tout moment</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Fausse preview rapport FM -->
+    <div class="rapport-card">
+      <div class="rapport-card-top"></div>
+      <div class="rapport-card-body">
+        <div class="rapport-card-header">
+          <div class="rapport-card-score">78</div>
+          <div>
+            <div class="rapport-card-profil" style="font-size:9px;text-transform:uppercase;letter-spacing:1.5px;color:#C4891A;">Rapport IA · Mars 2026</div>
+            <div class="rapport-card-type">🎯 Équilibré Prudent</div>
+            <div style="font-size:11px;color:rgba(255,255,255,.4);margin-top:2px;">Tu gères bien l'essentiel, quelques optimisations sont possibles.</div>
+          </div>
+        </div>
+        <div style="margin-bottom:12px;">
+          <span class="rapport-badge">🏅 Épargnant régulier</span>
+          <span class="rapport-badge">✦ Logement maîtrisé</span>
+        </div>
+        <div class="rapport-card-item">
+          <div class="rapport-card-item-title">🍽️ Restaurants · +87 € vs médiane</div>
+          <div class="rapport-card-item-desc">💡 Cuisiner 2 soirs de plus par semaine peut économiser 40-60 €/mois.</div>
+        </div>
+        <div class="rapport-card-item">
+          <div class="rapport-card-item-title">📱 Numérique · +34 € vs médiane</div>
+          <div class="rapport-card-item-desc">💡 Comparer les offres mobile peut réduire ta facture de 15 €/mois.</div>
+        </div>
+        <div class="rapport-card-economies">
+          <span style="font-size:20px;">💰</span>
+          <div>
+            <div class="rapport-card-economies-label">Économies potentielles</div>
+            <div class="rapport-card-economies-amount">121 € <span style="font-size:13px;color:#4A9060;font-weight:400;">/mois</span></div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -588,7 +729,9 @@ ml('account', '2139724');
       <ul class="price-features">
         <li>Score budget personnalisé</li>
         <li>Comparaison INSEE par catégorie</li>
-        <li>Plan d'action IA avec pistes concrètes</li>
+        <li>Rapport IA complet avec profil financier</li>
+        <li>Plan d'action priorisé par impact</li>
+        <li>Historique des rapports mensuels</li>
         <li>Données privées — jamais revendues</li>
         <li>Aucune connexion bancaire requise</li>
       </ul>
@@ -642,7 +785,13 @@ ml('account', '2139724');
     <details class="faq-item">
       <summary>C'est quoi le « score budget » exactement ? <span>+</span></summary>
       <div class="faq-answer">
-        C'est un indicateur sur 100 qui compare tes dépenses poste par poste aux médianes INSEE 2024 des Français de ton profil (âge, situation, zone géographique). Plus ton score est haut, plus tes dépenses sont optimisées par rapport à la réalité statistique.
+        C'est un indicateur sur 100 qui compare tes dépenses poste par poste aux médianes INSEE 2024 des Français de ton profil (situation familiale, zone géographique). Plus ton score est haut, plus tes dépenses sont optimisées par rapport à la réalité statistique.
+      </div>
+    </details>
+    <details class="faq-item">
+      <summary>C'est quoi le rapport IA exactement ? <span>+</span></summary>
+      <div class="faq-answer">
+        C'est un rapport mensuel généré par intelligence artificielle qui analyse ton budget en profondeur. Il comprend ton profil financier, tes badges, un radar chart vs la médiane INSEE, un plan d'action avec 3 priorités concrètes, et une projection de tes économies sur 12 mois. Il est sauvegardé et consultable à tout moment.
       </div>
     </details>
     <details class="faq-item">
@@ -666,13 +815,13 @@ ml('account', '2139724');
     <details class="faq-item">
       <summary>D'où viennent les données INSEE ? <span>+</span></summary>
       <div class="faq-answer">
-        Nous utilisons les enquêtes « Budget de famille » de l'INSEE, actualisées en 2024. Ces données couvrent les dépenses médianes des ménages français par tranche d'âge, composition familiale et zone géographique. C'est la source la plus fiable disponible en France.
+        Nous utilisons les enquêtes « Budget de famille » de l'INSEE, actualisées en 2024. Ces données couvrent les dépenses médianes des ménages français par composition familiale et zone géographique. C'est la source la plus fiable disponible en France.
       </div>
     </details>
     <details class="faq-item">
       <summary>Combien de temps ça prend ? <span>+</span></summary>
       <div class="faq-answer">
-        Environ 2 minutes pour remplir tes dépenses. Tu reçois ton score et ton plan d'action immédiatement après.
+        Environ 2 minutes pour remplir tes dépenses. Tu reçois ton score immédiatement, et ton rapport IA est généré en quelques secondes.
       </div>
     </details>
   </div>
@@ -682,7 +831,7 @@ ml('account', '2139724');
 <div class="bottom-cta-section">
   <div class="bottom-cta-inner">
     <div class="bottom-cta-title">Prêt à voir <em>clair</em> ?</div>
-    <p class="bottom-cta-sub">Rejoins la beta gratuite et découvre ton score budget en 2 minutes. Données INSEE 2024, plan d'action IA personnalisé.</p>
+    <p class="bottom-cta-sub">Rejoins la beta gratuite et découvre ton score budget en 2 minutes. Données INSEE 2024, rapport IA personnalisé inclus.</p>
     <a href="#hero-waitlist" class="bottom-cta-btn">Accéder à la beta gratuite →</a>
     <p class="bottom-cta-note">Gratuit · Sans connexion bancaire · Données privées</p>
   </div>
@@ -693,11 +842,10 @@ ml('account', '2139724');
 <div class="footer">
   <div class="footer-logo"><em>Lucide</em></div>
   <div class="footer-txt">
-    © 2025 Lucide · <a href="/mentions-legales">Mentions légales</a> · <a href="/confidentialite">Confidentialité</a> · <a href="/cgv">CGV</a>
+    © 2026 Lucide · <a href="/mentions-legales">Mentions légales</a> · <a href="/confidentialite">Confidentialité</a> · <a href="/cgv">CGV</a>
   </div>
 </div>
 
-<!-- SCRIPTS — mlSubmit + redirect copié tel quel du code Vercel qui fonctionne -->
 <script>
   function toggleMenu() {
     var m = document.getElementById('mobile-menu');
