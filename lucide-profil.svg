@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <!-- Fond crème -->
+  <rect width="400" height="400" rx="80" fill="#f7f4ef"/>
+
+  <!-- Icône losange centrée, agrandie -->
+  <g transform="translate(200, 165)">
+    <rect x="-72" y="-72" width="144" height="144" rx="14" transform="rotate(45)" fill="#C4891A"/>
+    <rect x="-40" y="-40" width="80" height="80" rx="7" transform="rotate(45)" fill="#f7f4ef"/>
+    <circle cx="0" cy="0" r="13" fill="#C4891A"/>
+    <line x1="-32" y1="0" x2="32" y2="0" stroke="#C4891A" stroke-width="5" opacity="0.35"/>
+    <line x1="0" y1="-32" x2="0" y2="32" stroke="#C4891A" stroke-width="5" opacity="0.35"/>
+  </g>
+
+  <!-- Texte Lucide en dessous -->
+  <text x="200" y="310" font-family="Georgia, serif" font-size="72" font-weight="700"
+        font-style="italic" fill="#C4891A" letter-spacing="-1"
+        text-anchor="middle">Lucide</text>
+</svg>
