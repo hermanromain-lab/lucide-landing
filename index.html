@@ -135,6 +135,14 @@ ml('account', '2139724');
   }
   .preview-footer strong { color: var(--ink); }
 
+  /* ─── VIDEO DEMO ─── */
+  .video-section { max-width: 860px; margin: 0 auto; padding: 0 48px 56px; text-align: center; }
+  .video-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--sage); margin-bottom: 12px; }
+  .video-title { font-family: 'Playfair Display', serif; font-size: clamp(20px, 2.5vw, 28px); font-weight: 900; letter-spacing: -1px; margin-bottom: 24px; }
+  .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; border-radius: 16px; overflow: hidden; box-shadow: 0 24px 64px rgba(26,23,20,.12); border: 1px solid var(--rule); }
+  .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+  @media(max-width:900px){ .video-section{ padding: 0 24px 40px; } }
+
   /* ─── STATS BAR ─── */
   .stats-bar {
     background: var(--ink); padding: 36px 48px;
@@ -650,6 +658,15 @@ ml('account', '2139724');
         </div>
       </div>
     </div>
+  </div>
+</div>
+
+<!-- VIDEO DEMO -->
+<div class="video-section reveal">
+  <div class="video-label">Démo</div>
+  <div class="video-title">Vois comment ça marche en 2 minutes</div>
+  <div class="video-wrapper">
+    <iframe src="https://www.loom.com/embed/cf102ed5d4c546b1bb34c6a8cb4b4c5d?hide_owner=true&hide_share=true&hide_title=true&hideEmbedTopBar=true" allowfullscreen></iframe>
   </div>
 </div>
 
